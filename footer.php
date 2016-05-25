@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="text-right">
-        <a href="#home"><i class="fa fa-arrow-up"></i></a>
+        <a id="subir-arriba"><i class="fa fa-arrow-up"></i></a>
     </div>
     <div class="footer-bottom">
         <div class="container">
@@ -48,3 +48,11 @@
         </div>
     </div>
 </footer>
+
+<!-- script tags
+    ============================================================= -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.mixitup.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/custom.js"></script>

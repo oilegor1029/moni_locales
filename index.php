@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <?php
-    $name = "Locales";
-    include "head.php";
-    ?>
+    <?php include "head.php"; ?>
 </head>
 <body>
-    <?php
-        $pagina = "locales";
-        include "header.php";
-    ?>
+    <?php include "header.php"; ?>
+
     <!-- portfolio section -->
     <section class="works text-center">
         <div class="container">
@@ -67,6 +62,12 @@
         </div>
     </section><!-- end of portfolios -->
 
-    <?php include "footer.php"; ?>
+    <!-- script tags
+        ============================================================= -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/jquery.mixitup.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 </html>

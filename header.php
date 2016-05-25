@@ -32,9 +32,9 @@
                                 <!-- Collect the nav links, forms, and other content for toggling -->
                                 <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="index.html" <?php if($pagina=="mapa") echo "class='active'"; ?>>Mapa Moñi</a></li>
-                                        <li><a href="locales.html" <?php if($pagina=="local") echo "class='active'"; ?>>Locales</a></li>
-                                        <li><a href="contacto.html" <?php if($pagina=="contacto") echo "class='active'"; ?>>Contacta con nosotros</a></li>
+                                        <li><a href="index.php" <?php if($pagina=="mapa") echo "class='active'"; ?>>Mapa Moñi</a></li>
+                                        <li><a href="locales.php" <?php if($pagina=="local") echo "class='active'"; ?>>Locales</a></li>
+                                        <li><a href="contacto.php" <?php if($pagina=="contacto") echo "class='active'"; ?>>Contacta con nosotros</a></li>
                                         <li><a href="usuario.html" <?php if($pagina=="usuario") echo "class='active'"; ?>>Usuario</a></li>
                                     </ul>
                                 </div><!-- /.navbar-collapse -->

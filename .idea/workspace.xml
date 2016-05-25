@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd9130d9-a33f-46c2-b5ff-d85397084837" name="Default" comment="" />
+    <list default="true" id="bd9130d9-a33f-46c2-b5ff-d85397084837" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/smoothscroll.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contacto.html" afterPath="$PROJECT_DIR$/contacto.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/footer.php" afterPath="$PROJECT_DIR$/footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/header.php" afterPath="$PROJECT_DIR$/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/custom.js" afterPath="$PROJECT_DIR$/js/custom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/miJS.js" afterPath="$PROJECT_DIR$/js/miJS.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/locales.php" afterPath="$PROJECT_DIR$/locales.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/DB.php" afterPath="$PROJECT_DIR$/util/DB.php" />
+    </list>
     <ignored path="moni_locales.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -22,51 +32,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="head.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/head.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="5" column="6" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+            <state vertical-scroll-proportion="-23.538462">
+              <caret line="36" column="65" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="locales.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/locales.html">
+      <file leaf-file-name="plantillaBase.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plantillaBase.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+            <state vertical-scroll-proportion="-9.153846">
+              <caret line="14" column="23" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contacto.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/contacto.html">
+      <file leaf-file-name="ParametrosArchivo.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ParametrosArchivo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+            <state vertical-scroll-proportion="-7.1923075">
+              <caret line="11" column="11" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery.mixitup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/jquery.mixitup.js">
+      <file leaf-file-name="contacto.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contacto.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-27.538462">
+              <caret line="77" column="34" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -75,48 +75,58 @@
       <file leaf-file-name="locales.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/locales.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.0">
-              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state vertical-scroll-proportion="-27.538462">
+              <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DB.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/util/DB.php">
+      <file leaf-file-name="footer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9413793">
-              <caret line="169" column="72" selection-start-line="169" selection-start-column="72" selection-end-line="169" selection-end-column="72" />
-              <folding>
-                <marker date="1464174226082" expanded="true" signature="1098:1543" placeholder="CREATE TABLE... IF" />
-                <marker date="1464174226082" expanded="true" signature="1649:1670" placeholder="SELECT * FRO... usuario" />
-                <marker date="1464174226082" expanded="true" signature="1776:1934" placeholder="INSERT INTO usuario... " />
-                <marker date="1464174226082" expanded="true" signature="2052:2211" placeholder="INSERT INTO usuario... " />
-                <marker date="1464174226082" expanded="true" signature="2369:2528" placeholder="CREATE TABLE... IF" />
-                <marker date="1464174226082" expanded="true" signature="2604:2627" placeholder="SELECT * FRO... categoria" />
-                <marker date="1464174226082" expanded="true" signature="2733:3036" placeholder="INSERT INTO categoria... " />
-                <marker date="1464174226082" expanded="true" signature="3194:3760" placeholder="CREATE TABLE... local" />
-                <marker date="1464174226082" expanded="true" signature="3923:3945" placeholder="SELECT * FRO... producto" />
-                <marker date="1464174226082" expanded="true" signature="4051:7126" placeholder="INSERT INTO producto... " />
-                <marker date="1464174226082" expanded="true" signature="4051:8136" placeholder="INSERT INTO producto... " />
-                <marker date="1464174226082" expanded="true" signature="4051:9200" placeholder="INSERT INTO producto... " />
-                <marker date="1464174226082" expanded="true" signature="4051:10217" placeholder="INSERT INTO producto... " />
-                <marker date="1464174226082" expanded="true" signature="10381:10403" placeholder="SELECT * FRO... producto" />
-                <marker date="1464174226082" expanded="true" signature="10509:17298" placeholder="INSERT INTO producto... " />
-                <marker date="1464174226082" expanded="true" signature="17456:17862" placeholder="CREATE TABLE... comentario" />
-                <marker date="1464174226082" expanded="true" signature="17963:18373" placeholder="CREATE TABLE... votacion" />
-                <marker date="1464174226082" expanded="true" signature="18474:18851" placeholder="CREATE TABLE... IF" />
-                <marker date="1464174226082" expanded="true" signature="18933:19397" placeholder="CREATE TABLE... IF" />
-              </folding>
+            <state vertical-scroll-proportion="-31.384615">
+              <caret line="57" column="22" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="locales2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/locales2.html">
+      <file leaf-file-name="miJS.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/miJS.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="68" selection-end-column="7" />
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/custom.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.05698324">
+              <caret line="3" column="83" selection-start-line="3" selection-start-column="83" selection-end-line="3" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contacto.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contacto.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-23.192308">
+              <caret line="126" column="14" selection-start-line="65" selection-start-column="4" selection-end-line="126" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -124,19 +134,26 @@
       </file>
     </leaf>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/locales.html" />
-        <option value="$PROJECT_DIR$/header.php" />
-        <option value="$PROJECT_DIR$/footer.php" />
         <option value="$PROJECT_DIR$/head.php" />
         <option value="$PROJECT_DIR$/ParametrosArchivo.php" />
-        <option value="$PROJECT_DIR$/contacto.html" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/locales2.html" />
-        <option value="$PROJECT_DIR$/locales.php" />
         <option value="$PROJECT_DIR$/util/DB.php" />
+        <option value="$PROJECT_DIR$/contacto.html" />
+        <option value="$PROJECT_DIR$/header.php" />
+        <option value="$PROJECT_DIR$/plantillaBase.php" />
+        <option value="$PROJECT_DIR$/locales.php" />
+        <option value="$PROJECT_DIR$/contacto.php" />
+        <option value="$PROJECT_DIR$/footer.php" />
+        <option value="$PROJECT_DIR$/js/miJS.js" />
+        <option value="$PROJECT_DIR$/js/custom.js" />
       </list>
     </option>
   </component>
@@ -236,60 +253,30 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="moni_locales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="moni_locales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="moni_locales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="moni_locales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_d76a6a98c9315931ec4927243517bc09e9b731a0/cmd/git.exe" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\moni_locales" />
       <recent name="C:\xampp\htdocs\moni_locales\img\local" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\moni_locales\img\local" />
-      <recent name="C:\xampp\htdocs\moni_locales" />
     </key>
   </component>
   <component name="RunManager">
@@ -339,11 +326,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2553305" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26066098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -353,7 +341,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -374,6 +361,188 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/head.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plantillaBase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contacto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contacto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.mixitup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locales.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/DB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="151" column="41" selection-start-line="151" selection-start-column="41" selection-end-line="151" selection-end-column="41" />
+          <folding>
+            <marker date="1464189381862" expanded="true" signature="1098:1543" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="1649:1670" placeholder="SELECT * FRO... usuario" />
+            <marker date="1464189381862" expanded="true" signature="1776:1934" placeholder="INSERT INTO usuario... " />
+            <marker date="1464189381862" expanded="true" signature="2052:2211" placeholder="INSERT INTO usuario... " />
+            <marker date="1464189381862" expanded="true" signature="2369:2528" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="2604:2627" placeholder="SELECT * FRO... categoria" />
+            <marker date="1464189381862" expanded="true" signature="2733:3036" placeholder="INSERT INTO categoria... " />
+            <marker date="1464189381862" expanded="true" signature="3194:3760" placeholder="CREATE TABLE... local" />
+            <marker date="1464189381862" expanded="true" signature="3923:3945" placeholder="SELECT * FRO... producto" />
+            <marker date="1464189381862" expanded="true" signature="4051:6726" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:7506" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:8347" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:9145" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:9974" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="10132:10538" placeholder="CREATE TABLE... comentario" />
+            <marker date="1464189381862" expanded="true" signature="10639:11049" placeholder="CREATE TABLE... votacion" />
+            <marker date="1464189381862" expanded="true" signature="11150:11527" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="11609:12073" placeholder="CREATE TABLE... IF" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locales2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="68" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/head.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locales.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contacto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.mixitup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locales.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/DB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1464189381862" expanded="true" signature="1098:1543" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="1649:1670" placeholder="SELECT * FRO... usuario" />
+            <marker date="1464189381862" expanded="true" signature="1776:1934" placeholder="INSERT INTO usuario... " />
+            <marker date="1464189381862" expanded="true" signature="2052:2211" placeholder="INSERT INTO usuario... " />
+            <marker date="1464189381862" expanded="true" signature="2369:2528" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="2604:2627" placeholder="SELECT * FRO... categoria" />
+            <marker date="1464189381862" expanded="true" signature="2733:3036" placeholder="INSERT INTO categoria... " />
+            <marker date="1464189381862" expanded="true" signature="3194:3760" placeholder="CREATE TABLE... local" />
+            <marker date="1464189381862" expanded="true" signature="3923:3945" placeholder="SELECT * FRO... producto" />
+            <marker date="1464189381862" expanded="true" signature="4051:6726" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:7506" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:8347" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:9145" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:9974" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="10132:10538" placeholder="CREATE TABLE... comentario" />
+            <marker date="1464189381862" expanded="true" signature="10639:11049" placeholder="CREATE TABLE... votacion" />
+            <marker date="1464189381862" expanded="true" signature="11150:11527" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="11609:12073" placeholder="CREATE TABLE... IF" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locales2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="68" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/head.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -435,25 +604,24 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1464174226082" expanded="true" signature="1098:1543" placeholder="CREATE TABLE... IF" />
-            <marker date="1464174226082" expanded="true" signature="1649:1670" placeholder="SELECT * FRO... usuario" />
-            <marker date="1464174226082" expanded="true" signature="1776:1934" placeholder="INSERT INTO usuario... " />
-            <marker date="1464174226082" expanded="true" signature="2052:2211" placeholder="INSERT INTO usuario... " />
-            <marker date="1464174226082" expanded="true" signature="2369:2528" placeholder="CREATE TABLE... IF" />
-            <marker date="1464174226082" expanded="true" signature="2604:2627" placeholder="SELECT * FRO... categoria" />
-            <marker date="1464174226082" expanded="true" signature="2733:3036" placeholder="INSERT INTO categoria... " />
-            <marker date="1464174226082" expanded="true" signature="3194:3760" placeholder="CREATE TABLE... local" />
-            <marker date="1464174226082" expanded="true" signature="3923:3945" placeholder="SELECT * FRO... producto" />
-            <marker date="1464174226082" expanded="true" signature="4051:7126" placeholder="INSERT INTO producto... " />
-            <marker date="1464174226082" expanded="true" signature="4051:8136" placeholder="INSERT INTO producto... " />
-            <marker date="1464174226082" expanded="true" signature="4051:9200" placeholder="INSERT INTO producto... " />
-            <marker date="1464174226082" expanded="true" signature="4051:10217" placeholder="INSERT INTO producto... " />
-            <marker date="1464174226082" expanded="true" signature="10381:10403" placeholder="SELECT * FRO... producto" />
-            <marker date="1464174226082" expanded="true" signature="10509:17298" placeholder="INSERT INTO producto... " />
-            <marker date="1464174226082" expanded="true" signature="17456:17862" placeholder="CREATE TABLE... comentario" />
-            <marker date="1464174226082" expanded="true" signature="17963:18373" placeholder="CREATE TABLE... votacion" />
-            <marker date="1464174226082" expanded="true" signature="18474:18851" placeholder="CREATE TABLE... IF" />
-            <marker date="1464174226082" expanded="true" signature="18933:19397" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="1098:1543" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="1649:1670" placeholder="SELECT * FRO... usuario" />
+            <marker date="1464189381862" expanded="true" signature="1776:1934" placeholder="INSERT INTO usuario... " />
+            <marker date="1464189381862" expanded="true" signature="2052:2211" placeholder="INSERT INTO usuario... " />
+            <marker date="1464189381862" expanded="true" signature="2369:2528" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="2604:2627" placeholder="SELECT * FRO... categoria" />
+            <marker date="1464189381862" expanded="true" signature="2733:3036" placeholder="INSERT INTO categoria... " />
+            <marker date="1464189381862" expanded="true" signature="3194:3760" placeholder="CREATE TABLE... local" />
+            <marker date="1464189381862" expanded="true" signature="3923:3945" placeholder="SELECT * FRO... producto" />
+            <marker date="1464189381862" expanded="true" signature="4051:6726" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:7506" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:8347" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:9145" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:9974" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="10132:10538" placeholder="CREATE TABLE... comentario" />
+            <marker date="1464189381862" expanded="true" signature="10639:11049" placeholder="CREATE TABLE... votacion" />
+            <marker date="1464189381862" expanded="true" signature="11150:11527" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="11609:12073" placeholder="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>
@@ -474,39 +642,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="43" selection-end-column="122" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ParametrosArchivo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/locales.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contacto.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
@@ -545,14 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/locales.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.0">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/local/hotel-manolo-mayo.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -563,31 +691,120 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/img/local/el-garito.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/local/bavaro.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/util/DB.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9413793">
-          <caret line="169" column="72" selection-start-line="169" selection-start-column="72" selection-end-line="169" selection-end-column="72" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="151" column="41" selection-start-line="151" selection-start-column="41" selection-end-line="151" selection-end-column="41" />
           <folding>
-            <marker date="1464174226082" expanded="true" signature="1098:1543" placeholder="CREATE TABLE... IF" />
-            <marker date="1464174226082" expanded="true" signature="1649:1670" placeholder="SELECT * FRO... usuario" />
-            <marker date="1464174226082" expanded="true" signature="1776:1934" placeholder="INSERT INTO usuario... " />
-            <marker date="1464174226082" expanded="true" signature="2052:2211" placeholder="INSERT INTO usuario... " />
-            <marker date="1464174226082" expanded="true" signature="2369:2528" placeholder="CREATE TABLE... IF" />
-            <marker date="1464174226082" expanded="true" signature="2604:2627" placeholder="SELECT * FRO... categoria" />
-            <marker date="1464174226082" expanded="true" signature="2733:3036" placeholder="INSERT INTO categoria... " />
-            <marker date="1464174226082" expanded="true" signature="3194:3760" placeholder="CREATE TABLE... local" />
-            <marker date="1464174226082" expanded="true" signature="3923:3945" placeholder="SELECT * FRO... producto" />
-            <marker date="1464174226082" expanded="true" signature="4051:7126" placeholder="INSERT INTO producto... " />
-            <marker date="1464174226082" expanded="true" signature="4051:8136" placeholder="INSERT INTO producto... " />
-            <marker date="1464174226082" expanded="true" signature="4051:9200" placeholder="INSERT INTO producto... " />
-            <marker date="1464174226082" expanded="true" signature="4051:10217" placeholder="INSERT INTO producto... " />
-            <marker date="1464174226082" expanded="true" signature="10381:10403" placeholder="SELECT * FRO... producto" />
-            <marker date="1464174226082" expanded="true" signature="10509:17298" placeholder="INSERT INTO producto... " />
-            <marker date="1464174226082" expanded="true" signature="17456:17862" placeholder="CREATE TABLE... comentario" />
-            <marker date="1464174226082" expanded="true" signature="17963:18373" placeholder="CREATE TABLE... votacion" />
-            <marker date="1464174226082" expanded="true" signature="18474:18851" placeholder="CREATE TABLE... IF" />
-            <marker date="1464174226082" expanded="true" signature="18933:19397" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="1098:1543" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="1649:1670" placeholder="SELECT * FRO... usuario" />
+            <marker date="1464189381862" expanded="true" signature="1776:1934" placeholder="INSERT INTO usuario... " />
+            <marker date="1464189381862" expanded="true" signature="2052:2211" placeholder="INSERT INTO usuario... " />
+            <marker date="1464189381862" expanded="true" signature="2369:2528" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="2604:2627" placeholder="SELECT * FRO... categoria" />
+            <marker date="1464189381862" expanded="true" signature="2733:3036" placeholder="INSERT INTO categoria... " />
+            <marker date="1464189381862" expanded="true" signature="3194:3760" placeholder="CREATE TABLE... local" />
+            <marker date="1464189381862" expanded="true" signature="3923:3945" placeholder="SELECT * FRO... producto" />
+            <marker date="1464189381862" expanded="true" signature="4051:6726" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:7506" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:8347" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:9145" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="4051:9974" placeholder="INSERT INTO producto... " />
+            <marker date="1464189381862" expanded="true" signature="10132:10538" placeholder="CREATE TABLE... comentario" />
+            <marker date="1464189381862" expanded="true" signature="10639:11049" placeholder="CREATE TABLE... votacion" />
+            <marker date="1464189381862" expanded="true" signature="11150:11527" placeholder="CREATE TABLE... IF" />
+            <marker date="1464189381862" expanded="true" signature="11609:12073" placeholder="CREATE TABLE... IF" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contacto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.192308">
+          <caret line="126" column="14" selection-start-line="65" selection-start-column="4" selection-end-line="126" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ParametrosArchivo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plantillaBase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.153846">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.538462">
+          <caret line="36" column="65" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contacto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-27.538462">
+          <caret line="77" column="34" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locales.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-27.538462">
+          <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/miJS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-31.384615">
+          <caret line="57" column="22" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05698324">
+          <caret line="3" column="83" selection-start-line="3" selection-start-column="83" selection-end-line="3" selection-end-column="83" />
+          <folding />
         </state>
       </provider>
     </entry>

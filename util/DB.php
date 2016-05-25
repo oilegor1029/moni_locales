@@ -114,142 +114,73 @@ class DB extends PDO
             {
                 if($res->rowCount() == 0)
                 {
-                    $sql = 'INSERT INTO producto VALUES (
-                                                        NULL,
-                                                        "Bar Manolo Mayo",
-                                                        "El Bar/Restaurante Manolo Mayo es un establecimiento que apuesta por la mezcla de lo tradicional junto a las novedades en la cocina tradicional.Cuenta con hotel en la planta superior",
-                                                        "Nuestro restaurante, que hoy en día abandera el conjunto de establecimientos que defienden a ultranza las buenas y cada vez más apreciadas maneras de la cocina tradicional. Contundente y segura en la concepción, nuestra carta, repleta de recetas caseras como siempre se ha cocinado en cualquier hogar andaluz; al amos de la lumbre; pero aplicando en ciertos casos, apreciables técnicas actuales. Queda reflejado en nuestras propuestas tradicionales, como nuestros afamados Arrocez con Perdiz, Bogavante, Carabinero, etc… También se manifiesta en nuestras formas, llegando a sorprender platos como el Bombón de Atún sobre berenjena rebozada, Croquetas de Rape envueltas en Kikos y miel de caña…",
-                                                        "Avenida de Sevilla, 29",
-                                                        37.161997,
-                                                        -5.924168,
-                                                        1,
-                                                        "bar-manolo-mayo.jpg"
-                                                        ),
-                                                        (
-                                                        NULL,
-                                                        "Hotel Manolo Mayo",
-                                                        "El Hotel Manolo Mayo es un establecimiento que cuenta con 45 habitaciones totalmente acomodadas. Tiene un restaurante en el edificio con mismo nombre.",
-                                                        "El antiguo hotel Manolo Mayo se inauguró en 1985. En el año 2004 se lleva a cabo la obra de reconstrucción integral sobre el edificio originario; sin embargo, este nuevo establecimiento hotelero, de líneas modernas, mantiene intacto su espíritu familiar.El hotel Manolo Mayo dispone de 45 habitaciones, entre dobles e individuales, dotadas de baño, TV, minibar, aire acondicionado frio/calor y conexión continua a internet. Las 45 habitaciones, amuebladas y muy confortables, están bien orientadas y son tranquilas y luminosas.La decoración general es sobria, combinando la madera con tonos en crema y azul, muy elegantes.",
-                                                        "Avenida de Sevilla, 29",
-                                                        37.161997,
-                                                        -5.924168,
-                                                        3,
-                                                        "hotel-manolo-mayo.jpg"
-                                                        ),
-                                                        (
-                                                        NULL,
-                                                        "Pub Bávaro",
-                                                        "Pub/Terraza durante el día, Discoteca por la noche. Ven a bávaro si te gusta disfrutar en todo momento."
-                                                        "El Pub/Discoteca Bávaro abrió sus puertas en 2015, comenzó siendo una discoteca por las noches pero pronto se expandió abriendo durante el día. Un Reconocido lugar en el pueblo para pasarlo bien."
-                                                        "Avenida Parque Norte, 1",
-                                                        37.168020,
-                                                        -5.928805,
-                                                        2,
-                                                        "bavaro.jpg"
-                                                        ),
-                                                        (
-                                                        NULL,
-                                                        "El Garito",
-                                                        "El Garito es el lugar en el que pasarlo bien por las noches no es una opción, es una regla."
-                                                        "El Garito es un pub nocturo situado junto a la Plaza de Santa Lucía, frente a la zona de botellón. Es el sitio en el que a la gran mayoría de jovenes le gusta acabar sus noches, y tanta gente no puede estar equivocada así que ven y visitanos, no te arrepentirás."
-                                                        "Plaza Santa Lucía, 3",
-                                                        37.168782,
-                                                        -5.929063,
-                                                        2,
-                                                        "el-garito.jpg"
-                                                        ),
-                                                        (
-                                                        NULL,
-                                                        "Parque de las Marismas",
-                                                        "El primer parque natural de Los Palacios situado en la parte sur del pueblo."
-                                                        "El parque de las marismas es un sitio perfecto para echar el día con la familia, pareja o amigos. Cuenta con mucho terreno abierto rodeado de verde en el que se te pasará el tiempo sin que te des cuenta."
-                                                        "Avenida de las Marismas, 21A",
-                                                        37.155377,
-                                                        -5.927862,
-                                                        4,
-                                                        "parque-marismas.jpg"
-                                                        )';
-                    if(!$this->dbh->query($sql))
-                        return false;
-                }
-            }
-
-            if($res = $this->dbh->query('SELECT * FROM producto'))
-            {
-                if($res->rowCount() == 0)
-                {
-                    $sql = 'INSERT INTO producto VALUES (
-                                                        NULL,
-                                                        "Canapé de madera Abatible Canadá",
-                                                        "El canapé Canadá es el modelo ideal para los que buscan lo cómodo y lo estético como base de su decoración. Su gran capacidad le permite almacena todo tipo de artículos, y además combina a la perfección el espacio con la resistencia. Ideal para pisos con poco espacio de almacenamiento. Éste canapé, que apoya en el suelo se comporta como un mueble más, sin necesidad de moverlo.",
-                                                        289.50,
-                                                        3,
-                                                        16,
-                                                        "canape-de-madera-abatible-canada.jpg"
-                                                        ),
-                                                        (
-                                                        NULL,
-                                                        "Canapé de madera Abatible 3D",
-                                                        "El modelo Canapé 3D es el modelo de madera más económico del mercado. Sus acabados te permiten garantizar la máxima resistencia con las mejores prestaciones. Es un Canapé que permite la posibilidad de limpiar por bajo, ya que no va a suelo y además existe la opción de ponerle ruedas para facilitar su desplazamiento.",
-                                                        199.00,
-                                                        3,
-                                                        7,
-                                                        "canape-abatible-canada.jpg"
-                                                        ),
-                                                        (
-                                                        NULL,
-                                                        "Canapé Abatible Multiláminas",
-                                                        "Canapé abatible modelo Multiláminas. Muy útil cuando tenemos poco espacio en nuestra habitación. Precio imbatible! Y calidad insuperable! DIVAN ABATIBLE MOD.605 DE MADERA MULTILAMINAS DISEÑO, FLEXIBILIDAD Y FIRMEZA",
-                                                        217.00,
-                                                        3,
-                                                        21,
-                                                        "canape-abatible-multilaminas.jpg"
-                                                        ),
-                                                        (
-                                                        NULL,
-                                                        "Canapé Abatible Javea",
-                                                        "Si quieres lo mejor, y lo quieres ya,  solo tienes que pedirlo éste es tu modelo. El canapé Jávea  engloba lo mejor de la casa, su acabado de madera, le confiere firmeza, resistencia y durabilidad, y su terminación el polipiel le confiere, belleza, modernidad y practicidad. Es un canapé con líneas rectas, modernas y minimalistas. ",
-                                                        389.00,
-                                                        3,
-                                                        0,
-                                                        "canape-abatible-javea.jpg"
-                                                        ),
-                                                        (
-                                                        NULL,
-                                                        "Almohada Fibra Baby",
-                                                        "Para los más peques de la casa desde 1 a 8 años , o para los amantes de las almohadas extremadamente suaves.",
-                                                        11.00,
-                                                        2,
-                                                        59,
-                                                        "almohada-fibra-baby.jpg"
-                                                        ),
-                                                        (
-                                                        NULL,
-                                                        "Colchón Viscoelástico Visconet",
-                                                        "Diseñado para los que buscan un colchón apto para todos los públicos. El modelo Visconet, de venta sólo en internet, con su tecnología exclusiva, maximiza el descanso de calidad, gracias a su sistema de amortiguación interno, que consigue la máxima adaptación para todos los públicos.",
-                                                        136.21,
-                                                        1,
-                                                        0,
-                                                        "colchon-viscoelastico-visconet.jpg"
-                                                        ),
-                                                        (
-                                                        NULL,
-                                                        "Colchón Viscoelástico Cadet",
-                                                        "El colchón Cadet está especialmente indicado para camas nido y literas, ya que por su altura es perfecto para este tipo de descanso.",
-                                                        129.00,
-                                                        1,
-                                                        12,
-                                                        "colchon-viscoelastico-cadet.jpg"
-                                                        ),
-                                                        (
-                                                        NULL,
-                                                        "Colchón Viscoelástico Indico",
-                                                        "Diseñado para los que buscan un colchón extra firme de primera calidad, con tratamiento aloe vera. El modelo Indico,  con su tecnología exclusiva, maximiza el descanso firme, gracias a su sistema de amortiguación interno, que consigue la máxima adaptación con la mayor firmeza.",
-                                                        168.00,
-                                                        1,
-                                                        12,
-                                                        "colchon-viscoelastico-indico.jpg"
-                                                        )';
+                    $sql = 'INSERT INTO producto VALUES
+                                (
+                                    NULL,
+                                    "Bar Manolo Mayo",
+                                    "El Bar/Restaurante Manolo Mayo es un establecimiento que apuesta por la mezcla de lo tradicional junto a las novedades en la cocina tradicional.Cuenta con hotel en la planta superior",
+                                    "Nuestro restaurante, que hoy en día abandera el conjunto de establecimientos que defienden a ultranza las buenas y cada vez más apreciadas maneras de la cocina tradicional. Contundente y segura en la concepción, nuestra carta, repleta de recetas caseras como siempre se ha cocinado en cualquier hogar andaluz; al amos de la lumbre; pero aplicando en ciertos casos, apreciables técnicas actuales. Queda reflejado en nuestras propuestas tradicionales, como nuestros afamados Arrocez con Perdiz, Bogavante, Carabinero, etc… También se manifiesta en nuestras formas, llegando a sorprender platos como el Bombón de Atún sobre berenjena rebozada, Croquetas de Rape envueltas en Kikos y miel de caña…",
+                                    "Avenida de Sevilla, 29",
+                                    37.161997,
+                                    -5.924168,
+                                    1,
+                                    "bar-manolo-mayo.jpg"
+                                ),
+                                (
+                                    NULL,
+                                    "Hotel Manolo Mayo",
+                                    "El Hotel Manolo Mayo es un establecimiento que cuenta con 45 habitaciones totalmente acomodadas. Tiene un restaurante en el edificio con mismo nombre.",
+                                    "El antiguo hotel Manolo Mayo se inauguró en 1985. En el año 2004 se lleva a cabo la obra de reconstrucción integral sobre el edificio originario; sin embargo, este nuevo establecimiento hotelero, de líneas modernas, mantiene intacto su espíritu familiar.El hotel Manolo Mayo dispone de 45 habitaciones, entre dobles e individuales, dotadas de baño, TV, minibar, aire acondicionado frio/calor y conexión continua a internet. Las 45 habitaciones, amuebladas y muy confortables, están bien orientadas y son tranquilas y luminosas.La decoración general es sobria, combinando la madera con tonos en crema y azul, muy elegantes.",
+                                    "Avenida de Sevilla, 29",
+                                    37.161997,
+                                    -5.924168,
+                                    3,
+                                    "hotel-manolo-mayo.jpg"
+                                ),
+                                (
+                                    NULL,
+                                    "Bávaro",
+                                    "Pub/Terraza durante el día, Discoteca por la noche. Ven a bávaro si te gusta disfrutar en todo momento.",
+                                    "El Pub/Discoteca Bávaro abrió sus puertas en 2015, comenzó siendo una discoteca por las noches pero pronto se expandió abriendo durante el día. Un Reconocido lugar en el pueblo para pasarlo bien.",
+                                    "Avenida Parque Norte, 1",
+                                    37.168020,
+                                    -5.928805,
+                                    2,
+                                    "bavaro.jpg"
+                                ),
+                                (
+                                    NULL,
+                                    "El Garito",
+                                    "Algo nuevo, donde podrás acabar tus noches de viernes y sábados con la mejor música y en la mejor compañia."
+                                    "En El Garito pasarlo bien no es una opción, es una regla. Frente a la zona de botellón es el sitio en el que a la gran mayoría de jovenes le gusta acabar sus noches, y tanta gente no puede estar equivocada así que ven y visitanos, no te arrepentirás.",
+                                    "Plaza Santa Lucía, 3",
+                                    37.168782,
+                                    -5.929063,
+                                    2,
+                                    "el-garito.jpg"
+                                ),
+                                (
+                                    NULL,
+                                    "Parque de las Marismas",
+                                    "El primer parque natural de Los Palacios situado en la parte sur del pueblo.",
+                                    "El parque de las marismas es un sitio perfecto para echar el día con la familia, pareja o amigos. Cuenta con mucho terreno abierto rodeado de verde en el que se te pasará el tiempo sin que te des cuenta.",
+                                    "Avenida de las Marismas, 21A",
+                                    37.155377,
+                                    -5.927862,
+                                    4,
+                                    "parque-de-las-marismas.jpg"
+                                ),
+                                (
+                                    NULL,
+                                    "Parque de los Hermanamientos",
+                                    "Uno de los dos parques grandes del pueblo, situado en la parte norte de este.",
+                                    "El parque de los Hermanamientos es un bonito parque que cuenta con buenas zonas para tumbarte en el cesped y un pequeño bar para tomar unos refrescos si te apetece. A este parque suele ir tambien mucha gente para hacer footing",
+                                    "Avenida de Sevilla, 109",
+                                    37.155377,
+                                    -5.927862,
+                                    4,
+                                    "parque-de-los-hermanamientos.jpg"
+                                )';
                     if(!$this->dbh->query($sql))
                         return false;
                 }

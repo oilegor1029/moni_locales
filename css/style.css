@@ -48,25 +48,6 @@ h1{
 	margin-top: 80px;
 }
 
-.top-nav{
-	position: absolute;
-	top: 0;
-	right: 0;
-	border-top: 80px solid #2c3e50;
-	border-left: 80px solid transparent;
-	z-index: 333;
-}
-.top-click{
-	position: absolute;
-	top: 0;
-	right: 0;
-	z-index: 444;
-}
-.top-click a i.fa{
-	font-size: 18px;
-	padding: 15px;
-	color: #fff;
-}
 .main-nav, .navbar-default{
 	vertical-align: bottom;
 	text-align: center;
@@ -291,17 +272,17 @@ ul.navbar li a:hover, ul.navbar li a.active, .navbar-default .navbar-nav>li>a:ho
 
 
 /*****************Works page******************/
-.works{
+#divLocales{
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
-.works h2, .about h2, .contact h2{
+#divLocales h2, .contact h2{
 	font-size: 24px;
 	color: #2c3e50;
 	text-transform: uppercase;
 	font-weight: bold;
 }
-.works ul li{
+#divLocales ul li{
 	font-size: 14px;
 	color: #2c3e50;
 	text-transform: uppercase;
@@ -317,116 +298,19 @@ ul.navbar li a:hover, ul.navbar li a.active, .navbar-default .navbar-nav>li>a:ho
 	-o-transition: all .5s ease 0s;
 	-ms-transition: all .5s ease 0s;
 }
-.works ul li:hover{
+#divLocales ul li:hover{
 	background: #2c3e50;
 	border-color: #2c3e50;
 	color: #fff;
 }
-.works ul li.active{
+#divLocales ul li.active{
 	background: #2c3e50;
 	border-color: #2c3e50;
 	color: #fff;
 }
-.single-work img{
-	width: 100%;
-	height: 100%;
-}
-.single-work{
-	position: relative;
-	margin-bottom: 25px;
-	overflow: hidden;
-}
-.overlay{
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(44, 62, 80, 0.76);
-	margin-top: -400px;
-	transition: all 0.5s ease 0s;
-	-webkit-transition: all 0.5s ease 0s;
-	-moz-transition: all 0.5s ease 0s;
-	-o-transition: all 0.5s ease 0s;
-	-ms-transition: all 0.5s ease 0s;
-}
-.single-work:hover .overlay{
-	margin-top: 0;
-}
-.overlay h3{
-	font-size: 18px;
-	color: #fff;
-	text-transform: uppercase;
-	margin-top: 25%;
-	margin-bottom: 10px;
-}
-.overlay a i.fa{
-	font-size: 25px;
-	color: #fff;
-	padding: 10px;
-}
-.overlay a i.fa:focus{
-	outline: none;
-}
-.modal-dialog {
-    width: 100% !important;
-    height: 100% !important;
-    margin-top: 0 !important;
-}
-.modal-header{
-	border: none;
-}
-.modal-header h4{
-	font-size: 30px;
-	color: #444444;
-	text-transform: uppercase;
-}
-.modal-header .close{
-	font-size: 70px;
-}
-.modal-content{
-	border-radius: 0;
-	border: 0;
-}
-.modal-body img{
-	margin-bottom: 35px;
-}
-.modal-body p{
-	font-size: 18px;
-	color: #444444;
-	text-align: left;
-}
-.modal-body ul{
-	display: inline-block;
-	border: 1px solid #dddddd;
-	margin-bottom: 30px;
-}
-.modal-body ul li{
-	border: none;
-	margin: 0;
-	cursor: inherit;
-	border-right: 1px solid #dddddd;
-	font-style: italic;
-	text-transform: inherit;
-	padding: 15px 20px;
-	font-size: 16px;
-	line-height: 1;
-}
-.modal-body ul li:last-child{
-	border: none;
-}
-.modal-body ul li:hover{
-	background: inherit;
-	color: inherit;
-	border-color: inherit;
-}
-.modal-footer{
-	text-align: center;
-	border: none;
-}
-.works .mix{
-    display: none;
-}
+
+
+
 
 /********about page*********/
 .about{
@@ -580,4 +464,26 @@ ul.navbar li a:hover, ul.navbar li a.active, .navbar-default .navbar-nav>li>a:ho
 	ul.navbar li a:hover, ul.navbar li a.active, .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a.active{
 		border-bottom: 1px solid #fff;
 	}
+}
+
+
+.infoWindow {
+	width: 100%;
+}
+
+#mapa-select{
+	position: relative;
+}
+#selectMapa {
+	position: absolute;
+	top: 10px;
+	left: 40%;
+	z-index: 111;
+	background-color: #fff;
+	padding: 5px;
+	border: 1px solid #999;
+	text-align: center;
+	font-family: 'Roboto','sans-serif';
+	line-height: 30px;
+	padding-left: 10px;
 }

@@ -52,7 +52,7 @@ class DB extends PDO
                   nombre VARCHAR (100),
                   apellidos VARCHAR (200),
                   descripcion VARCHAR (200),
-                  admin BOOLEAN DEFAULT FALSE,
+                  admin BOOLEAN NOT NULL DEFAULT 0,
                   UNIQUE (email),
                   PRIMARY KEY (id)
                   )'
@@ -64,10 +64,10 @@ class DB extends PDO
             {
                 if($res->rowCount() == 0)
                 {
-                    $sql = 'INSERT INTO usuario VALUES ("id", "admin@olp.com", "' . sha1('12345678') . '", "Rogelio", "Ramos Bellido", "Soy el creador de la web Ocio Los Palacios", true)';
+                    $sql = 'INSERT INTO usuario VALUES ("", "admin@olp.com", "' . sha1('12345678') . '", "Rogelio", "Ramos Bellido", "Soy el creador de la web Ocio Los Palacios", true)';
                     if(!$this->dbh->query($sql))
                         return false;
-                    $sql = 'INSERT INTO usuario VALUES ("id", "cliente@olp.com", "' . sha1('12345678') . '", "Ruben", "Ramos Bellido", "Soy el primer cliente de la web Ocio Los Palacios")';
+                    $sql = 'INSERT INTO usuario VALUES ("", "cliente@olp.com", "' . sha1('12345678') . '", "Ruben", "Ramos Bellido", "Soy el primer cliente de la web Ocio Los Palacios", false)';
                     if(!$this->dbh->query($sql))
                         return false;
                 }
@@ -110,13 +110,13 @@ class DB extends PDO
             )
                 return false;
 
-            if($res = $this->dbh->query('SELECT * FROM producto'))
+            if($res = $this->dbh->query('SELECT * FROM local'))
             {
                 if($res->rowCount() == 0)
                 {
-                    $sql = 'INSERT INTO producto VALUES
+                    $sql = 'INSERT INTO local VALUES
                                 (
-                                    NULL,
+                                    "",
                                     "Bar Manolo Mayo",
                                     "El Bar/Restaurante Manolo Mayo es un establecimiento que apuesta por la mezcla de lo tradicional junto a las novedades en la cocina tradicional.Cuenta con hotel en la planta superior",
                                     "Nuestro restaurante, que hoy en día abandera el conjunto de establecimientos que defienden a ultranza las buenas y cada vez más apreciadas maneras de la cocina tradicional. Contundente y segura en la concepción, nuestra carta, repleta de recetas caseras como siempre se ha cocinado en cualquier hogar andaluz; al amos de la lumbre; pero aplicando en ciertos casos, apreciables técnicas actuales. Queda reflejado en nuestras propuestas tradicionales, como nuestros afamados Arrocez con Perdiz, Bogavante, Carabinero, etc… También se manifiesta en nuestras formas, llegando a sorprender platos como el Bombón de Atún sobre berenjena rebozada, Croquetas de Rape envueltas en Kikos y miel de caña…",
@@ -127,7 +127,7 @@ class DB extends PDO
                                     "bar-manolo-mayo.jpg"
                                 ),
                                 (
-                                    NULL,
+                                    "",
                                     "Hotel Manolo Mayo",
                                     "El Hotel Manolo Mayo es un establecimiento que cuenta con 45 habitaciones totalmente acomodadas. Tiene un restaurante en el edificio con mismo nombre.",
                                     "El antiguo hotel Manolo Mayo se inauguró en 1985. En el año 2004 se lleva a cabo la obra de reconstrucción integral sobre el edificio originario; sin embargo, este nuevo establecimiento hotelero, de líneas modernas, mantiene intacto su espíritu familiar.El hotel Manolo Mayo dispone de 45 habitaciones, entre dobles e individuales, dotadas de baño, TV, minibar, aire acondicionado frio/calor y conexión continua a internet. Las 45 habitaciones, amuebladas y muy confortables, están bien orientadas y son tranquilas y luminosas.La decoración general es sobria, combinando la madera con tonos en crema y azul, muy elegantes.",
@@ -138,7 +138,7 @@ class DB extends PDO
                                     "hotel-manolo-mayo.jpg"
                                 ),
                                 (
-                                    NULL,
+                                    "",
                                     "Bávaro",
                                     "Pub/Terraza durante el día, Discoteca por la noche. Ven a bávaro si te gusta disfrutar en todo momento.",
                                     "El Pub/Discoteca Bávaro abrió sus puertas en 2015, comenzó siendo una discoteca por las noches pero pronto se expandió abriendo durante el día. Un Reconocido lugar en el pueblo para pasarlo bien.",
@@ -149,9 +149,9 @@ class DB extends PDO
                                     "bavaro.jpg"
                                 ),
                                 (
-                                    NULL,
+                                    "",
                                     "El Garito",
-                                    "Algo nuevo, donde podrás acabar tus noches de viernes y sábados con la mejor música y en la mejor compañia."
+                                    "Algo nuevo, donde podrás acabar tus noches de viernes y sábados con la mejor música y en la mejor compañia.",
                                     "En El Garito pasarlo bien no es una opción, es una regla. Frente a la zona de botellón es el sitio en el que a la gran mayoría de jovenes le gusta acabar sus noches, y tanta gente no puede estar equivocada así que ven y visitanos, no te arrepentirás.",
                                     "Plaza Santa Lucía, 3",
                                     37.168782,
@@ -160,7 +160,7 @@ class DB extends PDO
                                     "el-garito.jpg"
                                 ),
                                 (
-                                    NULL,
+                                    "",
                                     "Parque de las Marismas",
                                     "El primer parque natural de Los Palacios situado en la parte sur del pueblo.",
                                     "El parque de las marismas es un sitio perfecto para echar el día con la familia, pareja o amigos. Cuenta con mucho terreno abierto rodeado de verde en el que se te pasará el tiempo sin que te des cuenta.",
@@ -171,7 +171,7 @@ class DB extends PDO
                                     "parque-de-las-marismas.jpg"
                                 ),
                                 (
-                                    NULL,
+                                    "",
                                     "Parque de los Hermanamientos",
                                     "Uno de los dos parques grandes del pueblo, situado en la parte norte de este.",
                                     "El parque de los Hermanamientos es un bonito parque que cuenta con buenas zonas para tumbarte en el cesped y un pequeño bar para tomar unos refrescos si te apetece. A este parque suele ir tambien mucha gente para hacer footing",
@@ -209,30 +209,6 @@ class DB extends PDO
                         FOREIGN KEY (local) REFERENCES local(id)
                     );'
                 )
-            )
-                return false;
-
-            if(!$this->dbh->query('CREATE TABLE IF NOT EXISTS pedido
-                (
-                  num_pedido INT NOT NULL AUTO_INCREMENT,
-                  dni VARCHAR(9),
-                  fecha DATE,
-                  total_pedido DECIMAL(10,2),
-                  PRIMARY KEY (num_pedido),
-                  FOREIGN KEY (dni) REFERENCES usuario(dni) ON DELETE CASCADE ON UPDATE CASCADE
-                )')
-            )
-                return false;
-            if(!$this->dbh->query('CREATE TABLE IF NOT EXISTS linea
-                (
-                  num_linea INT NOT NULL AUTO_INCREMENT,
-                  num_pedido INT,
-                  num_producto INT,
-                  num_cantidad_producto INT,
-                  PRIMARY KEY (num_linea),
-                  FOREIGN KEY (num_pedido) REFERENCES pedido(num_pedido) ON DELETE CASCADE ON UPDATE CASCADE ,
-                  FOREIGN KEY (num_producto) REFERENCES producto(cod)
-                )')
             )
                 return false;
 

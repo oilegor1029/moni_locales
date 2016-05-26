@@ -9,8 +9,9 @@
                     <h3>Nuestro objetivo</h3>
                     <p>Esta web esta dedicada a encontrar lugares en el pueblo en los que poder salir a entretenernos.</p>
                     <p>Si conoces algun lugar que creas que deba estar en la web no dudes en comentarnoslo y lo añadiremos lo antes posible.</p>
-                    <a href="contacto.html">Contacta con nosotros</a>
+                    <a href="../html/contacto.html">Contacta con nosotros</a>
                     <address>
+                        <a id="crear_estructura" class="btn btn-link" data-loading-text="Creando estructura...">Crear estructura de datos</a>
                     </address>
                 </div>
 
@@ -38,10 +39,10 @@
                 </div>
                 <div class="col-md-6 footer-menu text-right">
                     <ul class="list-inline">
-                        <li><a href="index.html" <?php if($pagina=="mapa") echo "class='active'"; ?>>Mapa Moñi</a></li>
-                        <li><a href="locales.html" <?php if($pagina=="local") echo "class='active'"; ?>>Locales</a></li>
-                        <li><a href="contacto.html" <?php if($pagina=="contacto") echo "class='active'"; ?>>Contacta con nosotros</a></li>
-                        <li><a href="usuario.html" <?php if($pagina=="usuario") echo "class='active'"; ?>>Usuario</a></li>
+                        <li><a href="ndex.html">Mapa Moñi</a></li>
+                        <li><a href="locales.php">Locales</a></li>
+                        <li><a href="contacto.php">Contacta con nosotros</a></li>
+                        <li><a href="usuario.php">Usuario</a></li>
                     </ul>
                 </div>
             </div>
@@ -55,4 +56,4 @@
 <script src="js/jquery.mixitup.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/custom.js"></script>
-<script src="js/custom.js"></script>
+<script src="js/database.js"></script>

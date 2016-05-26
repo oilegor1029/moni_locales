@@ -1,72 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDZ3QtDNa8RYGLchU4MBSZAYnvUH-2vFsI&sensor=false"></script>
     <?php
     $name = "Locales";
-    include "head.php";
+    include "plantillas/head.php";
     ?>
 </head>
 <body>
     <?php
         $pagina = "locales";
-        include "header.php";
+        include "plantillas/header.php";
     ?>
+    <div id="mapa-select"">
+        <div id="map" style="width: 100%; height: 450px;"></div>
+        <select id="selectMapa">
+            <option value="0" selected>Todos</option>
+            <option value="1">Bares y Restaurantes</option>
+            <option value="2">Pubs y discotecas</option>
+            <option value="3">Hoteles y hostales</option>
+            <option value="4">Otros</option>
+        </select>
+    </div>
     <!-- portfolio section -->
-    <section class="works text-center">
+    <section id="divLocales">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 text-center">
                     <h2>Categorias</h2>
                     <ul class="list-inline">
-                        <li class="filter active" data-filter=".todos">Todos</li>
-                        <li class="filter" data-filter=".bares-restaurantes">Bares y Restaurantes</li>
-                        <li class="filter" data-filter=".pubs-discotecas">Pubs y discotecas</li>
-                        <li class="filter" data-filter=".hoteles">Hoteles y hostales</li>
-                        <li class="filter" data-filter=".otros">Otros</li>
+                        <li class="categoria active" data-id-cat="0">Todos</li>
+                        <li class="categoria" data-id-cat="1">Bares y Restaurantes</li>
+                        <li class="categoria" data-id-cat="2">Pubs y discotecas</li>
+                        <li class="categoria" data-id-cat="3">Hoteles y hostales</li>
+                        <li class="categoria" data-id-cat="4">Otros</li>
                     </ul>
                 </div>
-                <!-- single portfolio item -->
-                <div class="col-md-4 col-sm-6 mix web-development all" data-myorder="2">
-                    <div class="single-work">
-                        <img src="img/works/1.jpg" alt="#">
-                        <div class="overlay">
-                            <h3>Project Title Here</h3>
-                            <a href="#" type="button" data-toggle="modal" data-target="#myModal1"><i class="fa fa-search-plus"></i></a>
-                            <!-- Modal -->
-                            <div class="modal fade" id="myModal1" role="dialog">
-                                <div class="modal-dialog">
-
-                                    <!-- Modal content-->
-                                    <div class="modal-content text-center">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4>Project title</h4>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="modal-body col-md-8 col-md-offset-2">
-                                                <img src="img/works/1.jpg" alt="#">
-                                                <ul class="list-inline">
-                                                    <li>Client: Shaped Theme</li>
-                                                    <li>Finished Date: November 15, 2015 </li>
-                                                    <li>Technology: HTML, CSS, JS and Bootstrap 3</li>
-                                                </ul>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur accusantium in, provident officiis labore, iste fugiat quas ratione error accusamus possimus dolor aliquid ipsum hic! Quibusdam recusandae, voluptatem totam fugit ad, est nulla necessitatibus expedita amet molestias dignissimos, praesentium sequi. A reprehenderit, vitae ducimus facere sequi, pariatur repudiandae voluptates earum reiciendis veniam blanditiis. Sapiente quos animi numquam incidunt totam delectus voluptates illum ullam tempora labore, earum perferendis ab cupiditate facere quia eaque error id placeat blanditiis qui amet odio ipsam, unde? Maiores enim minima omnis sequi ipsum vel eum mollitia, sapiente totam deleniti culpa libero temporibus non consequatur qui in.</p>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close<i class="fa fa-times"></i></button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+            </div>
+            <div id="listaLocales" class="row">
+                <div class="panel panel-default infoWindow">
+                    <div class="panel-heading">
+                        <strong>Bar Manolo Mayo</strong>
+                        <span style="float : right;margin-left: 5px;">
+                            <a href=""><i class="fa fa-info" aria-hidden="true"></i> - Más información</a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <table>
+                            <tr>
+                                <td max-width="130px">
+                                    <img src="img/local/bar-manolo-mayo.jpg" alt="Imagen" width="130px;">
+                                </td>
+                                <td>
+                                    <p>El Bar/Restaurante Manolo Mayo es un establecimiento que apuesta por la mezcla de lo tradicional junto a las novedades en la cocina tradicional.Cuenta con hotel en la planta superior</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="panel-footer" style="bottom: 0px">
+                        Avenida de Sevilla, 29
+                        <span style="float : right;margin-left: 5px;">
+                            <a href=""><i class="fa fa-heart" aria-hidden="true"></i>Puntuación: 5</a>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </section><!-- end of portfolios -->
 
-    <?php include "footer.php"; ?>
+    <?php include "plantillas/footer.php"; ?>
+    <script src="js/map.js"></script>
 </body>
 </html>

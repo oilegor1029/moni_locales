@@ -3,13 +3,13 @@
 <head>
     <?php
         $name = "Contacto";
-        include "head.php";
+        include "plantillas/head.php";
     ?>
 </head>
 <body>
     <?php
         $pagina = "contacto";
-        include "header.php";
+        include "plantillas/header.php";
     ?>
 
     <!-- about section -->
@@ -75,6 +75,6 @@
         </div>
     </section>
 
-    <?php include "footer.php"; ?>
+    <?php include "plantillas/footer.php"; ?>
 </body>
 </html>

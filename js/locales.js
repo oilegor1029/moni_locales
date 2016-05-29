@@ -75,37 +75,8 @@ $(document).ready(function() {
             },
             map: map
         });
+
         var html = crearHtmlLocal(local);
-        /*var html =
-            '<div class="panel panel-default infoWindow">'
-            +'<!-- Default panel contents -->'
-                +'<div class="panel-heading">'
-                    +"<strong>" + local['nombre'] + "</strong>"
-                    +'<span style="float : right;margin-left: 5px;">'
-                        +'<a href=""><i class="fa fa-info" aria-hidden="true"></i> - Más información</a>'
-                    +'</span>'
-                +'</div>'
-                +'<div class="panel-body">'
-                    +'<table>'
-                        +'<tr>'
-                            +'<td max-width="130px">'
-                                +'<img src="img/local/'+local['img']+'" alt="Imagen" width="130px;">'
-                            +'</td>'
-                            +'<td width="70%">'
-                                + '<p>'+local['breve_descripcion']+'</p>'
-                            +'</td>'
-                        +'</tr>'
-                    +'</table>'
-                +'</div>'
-                +'<div class="panel-footer" style="bottom: 0px">'
-                    +'<div class="panel-footer" style="bottom: 0px">'
-                        +local['direccion']
-                        +'<span style="float : right;margin-left: 5px;">'
-                            +'<a href=""><i class="fa fa-heart" aria-hidden="true"></i>Puntuación: 5</a>'
-                        +'</span>'
-                    +'</div>'
-                +'</div>'
-            +'</div>';*/
 
         var infowindow = new google.maps.InfoWindow({
             content: html
@@ -162,13 +133,17 @@ $(document).ready(function() {
 
 
     function crearHtmlLocal(local) {
+        var hostname = window.location.hostname; //www.ociolospalacios.com
+        var index = window.location.pathname; //locales.php
+        //var search = window.location.search; //?local=2
+        var url = hostname+index;
 
         var html =
             '<div class="panel panel-default infoWindow">'
                 +'<div class="panel-heading">'
                     +"<strong>" + local['nombre'] + "</strong>"
                     +'<span style="float : right;margin-left: 5px;">'
-                        +'<a href=""><i class="fa fa-info" aria-hidden="true"></i> - Ver más</a>'
+                        +'<a href="http://'+url+'?local='+local['id']+'"><i class="fa fa-info" aria-hidden="true"></i> - Ver más</a>'
                     +'</span>'
                 +'</div>'
                 +'<div class="panel-body">'
@@ -186,7 +161,7 @@ $(document).ready(function() {
                 +'<div class="panel-footer" style="bottom: 0px">'
                     +local['direccion']
                     +'<span style="float : right;margin-left: 5px;">'
-                        +'<a href=""><i class="fa fa-heart" aria-hidden="true"></i>5</a>'
+                        +'<a href="http://'+url+'?local='+local['id']+'#comentarios"><i class="fa fa-heart" aria-hidden="true"></i>5</a>'
                     +'</span>'
                     +'</div>'
                 +'</div>'

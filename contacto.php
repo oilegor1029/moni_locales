@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(isset($_SESSION['usuario'])){
+    $sesionIniciada = true;
+    $nombre = $_SESSION['usuario']->getNombre() . " " . $_SESSION['usuario']->getApellidos();
+    $email = $_SESSION['usuario']->getEmail();
+} else $sesionIniciada = false;
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,10 +16,7 @@
     ?>
 </head>
 <body>
-    <?php
-        $pagina = "contacto";
-        include "plantillas/header.php";
-    ?>
+    <?php include "plantillas/header.php"; ?>
 
     <!-- about section -->
     <section class="contact text-center">
@@ -23,7 +29,8 @@
                         <div class="form-group">
                             <label for="nombre" class="control-label col-sm-2">Nombre</label>
                             <div class="col-sm-10">
-                                <input name="nombre" id="nombre" type="text" class="form-control" placeholder="Nombre completo" required>
+                                <input name="nombre" id="nombre" type="text" class="form-control" placeholder="Nombre completo"
+                                       required value="<?php echo $sesionIniciada ? $nombre : ''?>">
                             </div>
                         </div>
 
@@ -52,7 +59,8 @@
                             <div class="form-group">
                                 <label for="email" id="email" class="control-label col-sm-2"><input type="checkbox" value="email"> Email</label>
                                 <div class="col-sm-10">
-                                    <input name="email" type="email" class="form-control" placeholder="Correo electrónico" readonly>
+                                    <input name="email" type="email" class="form-control" placeholder="Correo electrónico"
+                                           readonly value="<?php echo $sesionIniciada ? $email : ''?>">
                                 </div>
                             </div>
 

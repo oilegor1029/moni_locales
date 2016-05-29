@@ -1,0 +1,6 @@
+RewriteEngine on
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+Rewriterule ^locales/(.+)/(.+) locales.php?local=$1&caca=$2

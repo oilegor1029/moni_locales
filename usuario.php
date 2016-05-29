@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['usuario'])){
+    header('Location: cuenta.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -42,13 +48,7 @@
             </div>
         </div>
     </section>
-    <?php
-    //session_start();
-    if(isset($_SESSION['usuario']))
-        $sesionIniciada = true;
-    else
-        $sesionIniciada = false;
-    ?>
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 style="display: <?php echo $sesionIniciada ? 'none' : 'block' ?>;" class="modal-title">Regístrate ahora <span class="text-success">GRATIS</span></h4>

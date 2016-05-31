@@ -58,7 +58,7 @@ if(isset($_SESSION['usuario'])){
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="text-center">
-                                                <a href=".." id="blog-link" tabindex="4" class="forgot-password">Volver a la tienda</a>
+                                                <a href=".." id="blog-link" tabindex="4" class="forgot-password">Volver a la web</a>
                                             </div>
                                         </div>
                                     </div>

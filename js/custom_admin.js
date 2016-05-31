@@ -1,9 +1,11 @@
 $(document).ready(function ()
 {
+    /*
     if($('#pass_admin').length)
         $('#pass_admin').focus();
     else
         cargarVentas();
+    */
 
     $(function ()
     {
@@ -87,43 +89,10 @@ $(document).ready(function ()
         return false;
     });
 
-    $('#btnLoginAdmin').click(function (e)
-    {
-        e.preventDefault();
-
-        $.ajax({
-            url: 'login_admin_2.php',
-            dataType: 'json',
-            type: 'post',
-            data:
-            {
-                datos: JSON.stringify
-                ({
-                    pass: $('#pass_admin').val()
-                })
-            },
-            success: function (respuesta)
-            {
-                if (respuesta.estado == 'ok')
-                    location.href="../admin/index.php";
-                else
-                {
-                    $('#error').show();
-                    $('#mensaje_error').html('<span class="fa fa-warning fa-fw"></span> Contraseña incorrecta');
-                }
-            },
-            error: function (xhr)
-            {
-                $('#error').show();
-                $('#mensaje_error').html('<span class="fa fa-warning fa-fw"></span> Ha habido problemas para hacer login :(');
-            }
-        });
-    });
-
-    $('#logout_admin').click(function ()
+    $('#logout').click(function ()
     {
         $.ajax({
-            url: 'logout_admin.php',
+            url: 'logout.php',
             dataType: 'json',
             success: function (respuesta)
             {
@@ -138,39 +107,29 @@ $(document).ready(function ()
             }
         });
     });
-
-    $('#sales_list').click(function ()
+    
+    $('#lista_usuarios').click(function ()
     {
         if(!$(this).parent().hasClass('active'))
         {
             $(this).parents('ul').children('li').removeClass('active');
             $(this).parent().addClass('active');
-            cargarVentas();
+            cargarUsuarios();
         }
     });
 
-    $('#clients_list').click(function ()
+    $('#lista_locales').click(function ()
     {
         if(!$(this).parent().hasClass('active'))
         {
             $(this).parents('ul').children('li').removeClass('active');
             $(this).parent().addClass('active');
-            cargarClientes();
-        }
-    });
-
-    $('#product_list').click(function ()
-    {
-        if(!$(this).parent().hasClass('active'))
-        {
-            $(this).parents('ul').children('li').removeClass('active');
-            $(this).parent().addClass('active');
-            cargarProductos();
+            cargarLocales();
         }
 
     });
 
-    $('#categories_list').click(function ()
+    $('#lista_categorias').click(function ()
     {
         if(!$(this).parent().hasClass('active'))
         {
@@ -180,55 +139,32 @@ $(document).ready(function ()
         }
     });
 
-    function guardarProducto()
+    function guardarLocal()
     {
-        var codProduct = $(this).data('product-save');
+        var idLocal = $(this).data('local-save');
 
         var okInfo = true;
         var opcion = 'modificar';
 
-        if(codProduct < 0)
+        if(idLocal < 0)
             opcion = 'nuevo';
 
-        var img = $('#product_img_' + codProduct);
-        var helpImg = $('#product_img_help_' + codProduct);
-        var nombre = $('#product_name_' + codProduct);
-        var helpNombre = $('#product_name_help_' + codProduct);
-        var descripcion = $('#product_desc_' + codProduct);
-        var helpDesc = $('#product_desc_help_' + codProduct);
-        var categoria = $('#categories_' + codProduct);
-        var helpCategoria = $('#product_categories_help_' + codProduct);
-        var pvp = $('#product_pvp_' + codProduct);
-        var helpPvp = $('#product_pvp_help_' + codProduct);
-        var stock = $('#product_stock_' + codProduct);
-        var helpStock = $('#product_stock_help_' + codProduct);
-
-        if(/^\d+$/.test(stock.val()))
-        {
-            stock.parent().removeClass('has-error');
-            helpStock.text('');
-        }
-        else
-        {
-            stock.parent().addClass('has-error');
-            stock.focus();
-            helpStock.text('Este valor debe ser numérico.');
-            okInfo = false;
-        }
-
-        if(/^\d+(\.\d+)?$/.test(pvp.val()))
-        {
-            pvp.parent().removeClass('has-error');
-            helpPvp.text('');
-        }
-        else
-        {
-            pvp.parent().addClass('has-error');
-            pvp.focus();
-            helpPvp.text('Este valor debe ser de formato numérico decima separado por un punto.');
-            okInfo = false;
-        }
-
+        var img = $('#local_img_' + idLocal);
+        var helpImg = $('#local_img_help_' + idLocal);
+        var nombre = $('#local_name_' + idLocal);
+        var helpNombre = $('#local_name_help_' + idLocal);
+        var breveDescripcion = $('#local_breve_desc_' + idLocal);
+        var helpBreveDesc = $('#local_breve_desc_help_' + idLocal);
+        var descripcion = $('#local_desc_' + idLocal);
+        var helpDesc = $('#local_desc_help_' + idLocal);
+        var categoria = $('#categorias_' + idLocal);
+        var helpCategoria = $('#local_categorias_help_' + idLocal);
+        var lat = $('#local_lat_' + idLocal);
+        var helpLat = $('#local_lat_help_' + idLocal);
+        var lng = $('#local_lng_' + idLocal);
+        var helpLng = $('#local_lng_help_' + idLocal);
+        var direccion = $('#local_direccion_' + idLocal);
+        var helpDireccion = $('#local_direccion_help_' + idLocal);
 
         if(/^[\d]$/.test(categoria.val()))
         {
@@ -243,7 +179,20 @@ $(document).ready(function ()
             okInfo = false;
         }
 
-        if(/([A-Za-zñÑ\s]){8,400}/i.test(descripcion.val()))
+        if(/([A-Za-zñÑ\s]){8,210}/i.test(breveDescripcion.val()))
+        {
+            breveDescripcion.parent().removeClass('has-error');
+            helpDesc.text('');
+        }
+        else
+        {
+            breveDescripcion.parent().addClass('has-error');
+            breveDescripcion.focus();
+            helpBreveDesc.text('La breve descripción debe ser alfanumérico de entre 8 y 210 caracteres.');
+            okInfo = false;
+        }
+
+        if(/([A-Za-zñÑ\s]){8,450}/i.test(descripcion.val()))
         {
             descripcion.parent().removeClass('has-error');
             helpDesc.text('');
@@ -252,7 +201,7 @@ $(document).ready(function ()
         {
             descripcion.parent().addClass('has-error');
             descripcion.focus();
-            helpDesc.text('La descripción debe ser alfanumérico de entre 8 y 400 caracteres.');
+            helpDesc.text('La descripción debe ser alfanumérico de entre 8 y 450 caracteres.');
             okInfo = false;
         }
 
@@ -265,42 +214,44 @@ $(document).ready(function ()
         {
             nombre.parent().addClass('has-error');
             nombre.focus();
-            helpNombre.text('El nombre del producto debe ser alfanumérico de entre 4 y 25 caracteres.');
+            helpNombre.text('El nombre del local debe ser alfanumérico de entre 4 y 25 caracteres.');
             okInfo = false;
         }
 
         if(okInfo)
         {
-            $('#link_tab_info_producto_' + codProduct + '').html('Información');
+            $('#link_tab_info_local_' + idLocal + '').html('Información');
             $.ajax({
-                url: 'new_or_mod_product.php',
+                url: 'new_or_mod_local.php',
                 dataType: 'json',
                 type : 'post',
                 data :
                 {
                     datos: JSON.stringify
                     ({
-                        cod: codProduct,
+                        id: idLocal,
                         nombre: nombre.val(),
+                        breve_descripcion: breveDescripcion.val(),
                         descripcion: descripcion.val(),
                         categoria: categoria.val(),
-                        pvp: pvp.val(),
-                        stock: stock.val(),
+                        lat: lat.val(),
+                        lng: lng.val(),
+                        direccion: direccion.val(),
                         opcion: opcion
                     })
                 },
                 beforeSend: function ()
                 {
-                    $('[data-product-save="' + codProduct + '"]').button('loading');
+                    $('[data-local-save="' + idLocal + '"]').button('loading');
                 },
                 success: function (respuesta)
                 {
                     if (respuesta.estado == 'ok')
                     {
-                        $('#new_cod_product_hidden').val(respuesta.lastId);
+                        $('#new_id_local_hidden').val(respuesta.lastId);
                         if(img.val() != '')
                         {
-                            $('#upload_img_product_' + codProduct + '').one('submit', function (e)
+                            $('#upload_img_local_' + idLocal + '').one('submit', function (e)
                             {
                                 e.preventDefault();
                                 $.ajax({
@@ -316,30 +267,31 @@ $(document).ready(function ()
                                         if(respuesta.estado == 'ok')
                                             toastr.success(respuesta.mensaje);
                                         else
-                                            toastr.warning('La información del producto ha sido guardada correctamente, pero ha habido problemas con la imagen:\n' + respuesta.mensaje);
+                                            toastr.warning('La información del local ha sido guardada correctamente, pero ha habido problemas con la imagen:\n' + respuesta.mensaje);
 
-                                        $('#modal_new_product').queue(function ()
+                                        $('#modal_new_local').queue(function ()
                                         {
                                             $('div .modal-header button.close').click();
 
                                         }).delay(700).queue(function ()
                                         {
-                                            $('#refresh_products').click();
+                                            $('#refresh_locales').click();
 
                                         }).dequeue();
-                                        $('#details_product_' + codProduct   + '').queue(function ()
+                                        $('#details_local_' + idLocal   + '').queue(function ()
                                         {
                                             $('div .modal-header button.close').click();
 
                                         }).delay(700).queue(function ()
                                         {
-                                            $('#refresh_products').click();
+                                            $('#refresh_locales').click();
 
                                         }).dequeue();
                                     },
                                     error: function (xhr)
                                     {
-                                        toastr.warning('La información del producto ha sido guardada correctamente, pero ha habido un problema desconocido con la imagen :(');
+                                        //console.log(xhr.responseText);
+                                        toastr.warning('La información del local ha sido guardada correctamente, pero ha habido un problema desconocido con la imagen :(');
                                     }
                                 });
                             }).submit();
@@ -348,22 +300,22 @@ $(document).ready(function ()
                         {
                             toastr.success(respuesta.mensaje);
 
-                            $('#modal_new_product').queue(function ()
+                            $('#modal_new_local').queue(function ()
                             {
                                 $('div .modal-header button.close').click();
 
                             }).delay(700).queue(function ()
                             {
-                                $('#refresh_products').click();
+                                $('#refresh_locales').click();
 
                             }).dequeue();
-                            $('#details_product_' + codProduct   + '').queue(function ()
+                            $('#details_local_' + idLocal   + '').queue(function ()
                             {
                                 $('div .modal-header button.close').click();
 
                             }).delay(700).queue(function ()
                             {
-                                $('#refresh_products').click();
+                                $('#refresh_locales').click();
 
                             }).dequeue();
                         }
@@ -377,28 +329,28 @@ $(document).ready(function ()
                 },
                 complete: function()
                 {
-                    $('[data-product-save="' + codProduct + '"]').button('reset');
+                    $('[data-local-save="' + idLocal + '"]').button('reset');
                 }
             });
         }
         else
         {
-            $('#link_tab_info_producto_' + codProduct + '').html('<span class="fa fa-exclamation-triangle fa-fw text-danger"></span> Información');
+            $('#link_tab_info_local_' + idLocal + '').html('<span class="fa fa-exclamation-triangle fa-fw text-danger"></span> Información');
         }
     }
 
     function guardarCategoria()
     {
-        var codCategory = $(this).data('category-save');
+        var idCategoria = $(this).data('categoria-save');
 
         var okInfo = true;
         var opcion = 'modificar';
 
-        if(codCategory < 0)
+        if(idCategoria < 0)
             opcion = 'nuevo';
 
-        var nombre = $('#name_category_' + codCategory);
-        var helpNombre = $('#name_category_help_' + codCategory);
+        var nombre = $('#name_categoria_' + idCategoria);
+        var helpNombre = $('#name_categoria_help_' + idCategoria);
 
         if(/([A-Za-zñÑ\s]){4,10}/i.test(nombre.val()))
         {
@@ -416,34 +368,34 @@ $(document).ready(function ()
         if(okInfo)
         {
             $.ajax({
-                url: 'new_or_mod_category.php',
+                url: 'new_or_mod_categoria.php',
                 dataType: 'json',
                 type : 'post',
                 data :
                 {
                     datos: JSON.stringify
                     ({
-                        cod: codCategory,
+                        id: idCategoria,
                         nombre: nombre.val(),
                         opcion: opcion
                     })
                 },
                 beforeSend: function ()
                 {
-                    $('[data-category-save="' + codCategory + '"]').button('loading');
+                    $('[data-categoria-save="' + idCategoria + '"]').button('loading');
                 },
                 success: function (respuesta)
                 {
                     if (respuesta.estado == 'ok')
                     {
                         toastr.success(respuesta.mensaje);
-                        $('#modal_categoria_' + codCategory + '').queue(function ()
+                        $('#modal_categoria_' + idCategoria + '').queue(function ()
                         {
                             $('div .modal-header button.close').click();
 
                         }).delay(700).queue(function ()
                         {
-                            $('#refresh_categories').click();
+                            $('#refresh_categorias').click();
 
                         }).dequeue();
 
@@ -453,28 +405,34 @@ $(document).ready(function ()
                 },
                 error: function (xhr)
                 {
+                    console.log(JSON.stringify
+                    ({
+                        id: idCategoria,
+                        nombre: nombre.val(),
+                        opcion: opcion
+                    }));
                     toastr.error('Ha habido problemas para guardar la información :(');
                 },
                 complete: function()
                 {
-                    $('[data-category-save="' + codCategory + '"]').button('reset');
+                    $('[data-categoria-save="' + idCategoria + '"]').button('reset');
                 }
             });
         }
     }
 
-    function eliminarProducto()
+    function eliminarLocal()
     {
-        var codProduct = $(this).data('delete-product');
+        var idLocal = $(this).data('delete-local');
         var tr = $(this).parents('tr');
         $.ajax({
-            url: 'delete_product.php',
+            url: 'delete_local.php',
             dataType: 'json',
             type: 'post',
-            data: {codProduct: codProduct},
+            data: {idLocal: idLocal},
             beforeSend: function ()
             {
-                $('[data-delete-product="' + codProduct + '"]').attr('disabled');
+                $('[data-delete-local="' + idLocal + '"]').attr('disabled');
             },
             success: function(respuesta)
             {
@@ -482,14 +440,14 @@ $(document).ready(function ()
                 {
                     toastr.success(respuesta.mensaje);
                     tr.fadeOut(function () {
-                        $('#refresh_products').click();
+                        $('#refresh_locales').click();
                     });
                 }
                 else if(respuesta.estado == 'warning')
                 {
                     toastr.warning(respuesta.mensaje);
                     tr.fadeOut(function () {
-                        $('#refresh_products').click();
+                        $('#refresh_locales').click();
                     });
                 }
                 else
@@ -497,27 +455,27 @@ $(document).ready(function ()
             },
             error: function(xhr)
             {
-                toastr.error('Ha habido problemas para eliminar el producto :(');
+                toastr.error('Ha habido problemas para eliminar el local :(');
             },
             complete: function()
             {
-                $('[data-delete-product="' + codProduct + '"]').removeAttr('disabled');
+                $('[data-delete-local="' + idLocal + '"]').removeAttr('disabled');
             }
         });
     }
 
-    function eliminarCliente()
+    function eliminarUsuario()
     {
-        var dni = $(this).data('delete-client');
+        var id = $(this).data('delete-usuario');
         var tr = $(this).parents('tr');
         $.ajax({
-            url: 'delete_client.php',
+            url: 'delete_usuario.php',
             dataType: 'json',
             type: 'post',
-            data: {dni: dni},
+            data: {id: id},
             beforeSend: function ()
             {
-                $('[data-delete-client="' + dni + '"]').attr('disabled');
+                $('[data-delete-usuario="' + id + '"]').attr('disabled');
             },
             success: function(respuesta)
             {
@@ -525,7 +483,7 @@ $(document).ready(function ()
                 {
                     toastr.success(respuesta.mensaje);
                     tr.fadeOut(function () {
-                        $('#refresh_clients').click();
+                        $('#refresh_usuarios').click();
                     });
                 }
                 else
@@ -533,27 +491,27 @@ $(document).ready(function ()
             },
             error: function(xhr)
             {
-                toastr.error('Ha habido problemas para eliminar el cliente :(');
+                toastr.error('Ha habido problemas para eliminar el usuario :(');
             },
             complete: function()
             {
-                $('[data-delete-client="' + dni + '"]').removeAttr('disabled');
+                $('[data-delete-usuario="' + id + '"]').removeAttr('disabled');
             }
         });
     }
 
     function eliminarCategoria()
     {
-        var codCategoria = $(this).data('delete-category');
+        var idCategoria = $(this).data('delete-categoria');
         var tr = $(this).parents('tr');
         $.ajax({
-            url: 'delete_category.php',
+            url: 'delete_categoria.php',
             dataType: 'json',
             type: 'post',
-            data: {cod: codCategoria},
+            data: {id: idCategoria},
             beforeSend: function ()
             {
-                $('[data-delete-category="' + codCategoria + '"]').attr('disabled');
+                $('[data-delete-categoria="' + idCategoria + '"]').attr('disabled');
             },
             success: function(respuesta)
             {
@@ -561,7 +519,7 @@ $(document).ready(function ()
                 {
                     toastr.success(respuesta.mensaje);
                     tr.fadeOut(function () {
-                        $('#refresh_categories').click();
+                        $('#refresh_categorias').click();
                     });
                 }
                 else
@@ -569,19 +527,19 @@ $(document).ready(function ()
             },
             error: function(xhr)
             {
-                toastr.error('Ha habido problemas para eliminar el producto :(');
+                toastr.error('Ha habido problemas para eliminar la categoria :(');
             },
             complete: function()
             {
-                $('[data-delete-category="' + codCategoria + '"]').removeAttr('disabled');
+                $('[data-delete-categoria="' + idCategoria + '"]').removeAttr('disabled');
             }
         });
     }
 
-    function cargarVentas()
+    function cargarUsuarios()
     {
         $.ajax({
-            url: 'get_orders.php',
+            url: 'get_usuarios.php',
             dataType: 'json',
             type: 'get',
             beforeSend: function ()
@@ -592,118 +550,45 @@ $(document).ready(function ()
             {
                 if(respuesta.estado == 'ok')
                 {
-                    if(respuesta.pedidos.length > 0)
-                    {
-                        var html = '<br>' +
-                                    '<div class="panel panel-default">' +
-                                        '<div class="panel-heading">' +
-                                            '<div class="row">' +
-                                                '<div class="col-xs-4">' +
-                                                    '<h4>Ventas</h4>' +
-                                                '</div>' +
-                                                '<div class="col-xs-8 text-right">' +
-                                                    '<button class="btn btn-default" id="refresh_sales"><span class="fa fa-refresh fa-fw"></span></button>' +
-                                                '</div>' +
-                                            '</div>' +
-                                        '</div>' +
-                                        '<div class="panel-body">' +
-                                            '<div id="no-more-tables">' +
-                                                '<table id="tabla_ventas" class="table">' +
-                                                    '<thead>' +
-                                                        '<tr>' +
-                                                            '<th>Num. pedido</th>' +
-                                                            '<th>Fecha del pedido</th>' +
-                                                            '<th>Total del pedido</th>' +
-                                                            '<th>Factura</th>' +
-                                                        '</tr>' +
-                                                    '</thead>' +
-                                                    '<tbody>';
-                                                        $.each(respuesta.pedidos, function (indice, pedido) {
-                                                            html += '<tr>' +
-                                                            '<td data-title="Num. pedido">' + pedido.num_pedido + '</td>' +
-                                                            '<td data-title="Fecha del pedido">' + pedido.fecha + '</td>' +
-                                                            '<td data-title="Total del pedido">' + pedido.total_pedido + '</td>' +
-                                                            '<td data-title="Factura"><a href="../view_invoice.php?codPedido=' + pedido.num_pedido + '" target="_blank" class="btn btn-link">Ver factura</a></td>' +
-                                                            '</tr>';
-                                                        });
-                                                        html += '</tbody>' +
-                                                '</table>' +
-                                            '</div>' +
-                                        '</div>' +
-                                    '</div>';
-
-                        $('#contenido').html(html);
-                        $('#refresh_sales').click(cargarVentas);
-
-                        $('#tabla_ventas').DataTable({
-                            "language":
-                            {
-                                "url": "../js/spanish.json"
-                            }
-                        });
-                    }
-                    else
-                        $('#contenido').html('<br><div class="alert alert-warning">No se ha realizado ventas</div>');
-                }
-                else
-                    toastr.error(respuesta.mensaje);
-            },
-            error: function ()
-            {
-                toastr.error('Ha habido problemas para cargar las ventas :(');
-            }
-        });
-    }
-
-    function cargarClientes()
-    {
-        $.ajax({
-            url: 'get_clients.php',
-            dataType: 'json',
-            type: 'get',
-            beforeSend: function ()
-            {
-                $('#contenido').html('Cargando...');
-            },
-            success: function (respuesta)
-            {
-                if(respuesta.estado == 'ok')
-                {
-                    if(respuesta.clientes.length > 0)
+                    if(respuesta.usuarios.length > 0)
                     {
                         var html =  '<br>' +
                                     '<div class="panel panel-default">' +
                                         '<div class="panel-heading">' +
                                             '<div class="row">' +
                                                 '<div class="col-xs-4">' +
-                                                    '<h4>Clientes</h4>' +
+                                                    '<h4>Usuarios</h4>' +
                                                 '</div>' +
                                                 '<div class="col-xs-8 text-right">' +
-                                                    '<button class="btn btn-default" id="refresh_clients"><span class="fa fa-refresh fa-fw"></span></button>' +
+                                                    '<button class="btn btn-default" id="refresh_usuarios"><span class="fa fa-refresh fa-fw"></span></button>' +
                                                 '</div>' +
                                             '</div>' +
                                         '</div>' +
                                         '<div class="panel-body">' +
                                             '<div id="no-more-tables">' +
-                                                '<table id="tabla_clientes" class="table">' +
+                                                '<table id="tabla_usuarios" class="table">' +
                                                     '<thead>' +
                                                         '<tr>' +
-                                                            '<th>DNI</th>' +
+                                                            '<th>Email</th>' +
+                                                            '<th>Tipo</th>' +
                                                             '<th>Nombre</th>' +
                                                             '<th>Apellidos</th>' +
                                                             '<th></th>' +
                                                         '</tr>' +
                                                     '</thead>' +
                                                     '<tbody>';
-                                                        $.each(respuesta.clientes, function (indice, cliente)
+                                                        $.each(respuesta.usuarios, function (indice, usuario)
                                                         {
                                                             html += '<tr>' +
-                                                                        '<td data-title="DNI">' + cliente.dni + '</td>' +
-                                                                        '<td data-title="Nombre">' + cliente.nombre + '</td>' +
-                                                                        '<td data-title="Apellidos">' + cliente.apellidos + '</td>' +
+                                                                        '<td data-title="Email">' + usuario.email + '</td>' +
+                                                                        '<td data-title="Tipo">';
+                                                            html += (usuario.admin == 1) ? "Admin" : "Usuario"
+                                                            html +=     '</td>' +
+                                                                        '<td data-title="Nombre">' + usuario.nombre + '</td>' +
+                                                                        '<td data-title="Apellidos">' + usuario.apellidos + '</td>' +
                                                                         '<td data-title="">' +
-                                                                            '<button class="btn btn-default" data-toggle="modal" data-target="#modal_usuario_' + cliente.dni + '"><span class="fa fa-eye fa-fw"></span></button> ' +
-                                                                            '<button class="btn btn-danger" data-delete-client="' + cliente.dni + '"><span class="fa fa-trash fa-fw"></span></button>' +
+                                                                            '<button class="btn btn-default" data-toggle="modal" data-target="#modal_usuario_' + usuario.id + '"><span class="fa fa-eye fa-fw"></span></button> ' +
+                                                                            '<button class="btn btn-danger" data-delete-usuario="' + usuario.id + '"><span class="fa fa-trash fa-fw"></span></button>' +
                                                                         '</td>' +
                                                                     '</tr>';
                                                         });
@@ -713,9 +598,9 @@ $(document).ready(function ()
                                         '</div>' +
                                     '</div>';
 
-                        $.each(respuesta.clientes, function (indice, cliente)
+                        $.each(respuesta.usuarios, function (indice, usuario)
                         {
-                            html += '<div class="modal fade" id="modal_usuario_' + cliente.dni + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">' +
+                            html += '<div class="modal fade" id="modal_usuario_' + usuario.id + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">' +
                                         '<div class="modal-dialog">' +
                                             '<div class="modal-content">' +
                                                 '<div class="modal-header">' +
@@ -725,57 +610,41 @@ $(document).ready(function ()
                                                 '<div class="modal-body">' +
                                                     '<form class="form-horizontal">' +
                                                         '<div class="form-group">' +
-                                                            '<label for="inputEmail3" class="col-sm-3 control-label">DNI</label>' +
+                                                            '<label for="inputEmail3" class="col-sm-3 control-label">ID</label>' +
                                                             '<div class="col-sm-9">' +
-                                                                '<input type="text" class="form-control" readonly value="' + cliente.dni + '">' +
+                                                                '<input type="text" class="form-control" readonly value="' + usuario.id + '">' +
+                                                            '</div>' +
+                                                        '</div>' +
+                                                        '<div class="form-group">' +
+                                                            '<label for="inputEmail3" class="col-sm-3 control-label">Email</label>' +
+                                                            '<div class="col-sm-9">' +
+                                                                '<input type="text" class="form-control" readonly value="' + usuario.email + '">' +
                                                             '</div>' +
                                                         '</div>' +
                                                         '<div class="form-group">' +
                                                             '<label for="inputPassword3" class="col-sm-3 control-label">Nombre</label>' +
                                                             '<div class="col-sm-9">' +
-                                                                '<input type="text" class="form-control" readonly value="' + cliente.nombre + '"> ' +
+                                                                '<input type="text" class="form-control" readonly value="' + usuario.nombre + '"> ' +
                                                             '</div> ' +
                                                         '</div> ' +
                                                         '<div class="form-group">' +
                                                             '<label for="inputPassword3" class="col-sm-3 control-label">Apellidos</label>' +
                                                             '<div class="col-sm-9">' +
-                                                                '<input type="text" class="form-control" readonly value="' + cliente.apellidos + '"> ' +
+                                                                '<input type="text" class="form-control" readonly value="' + usuario.apellidos + '"> ' +
                                                             '</div> ' +
                                                         '</div> ' +
                                                         '<div class="form-group">' +
-                                                            '<label for="inputPassword3" class="col-sm-3 control-label">Dirección</label>' +
+                                                            '<label for="inputPassword3" class="col-sm-3 control-label">Descripcion</label>' +
                                                             '<div class="col-sm-9">' +
-                                                                '<input type="text" class="form-control" readonly value="' + cliente.direccion + '"> ' +
+                                                                '<input type="text" class="form-control" readonly value="' + usuario.descripcion + '"> ' +
                                                             '</div> ' +
                                                         '</div> ' +
                                                         '<div class="form-group">' +
-                                                            '<label for="inputPassword3" class="col-sm-3 control-label">Localidad</label>' +
+                                                            '<label for="inputPassword3" class="col-sm-3 control-label">Tipo</label>' +
                                                             '<div class="col-sm-9">' +
-                                                                '<input type="text" class="form-control" readonly value="' + cliente.localidad + '"> ' +
-                                                            '</div> ' +
-                                                        '</div> ' +
-                                                        '<div class="form-group">' +
-                                                            '<label for="inputPassword3" class="col-sm-3 control-label">Código postal</label>' +
-                                                            '<div class="col-sm-9">' +
-                                                                '<input type="text" class="form-control" readonly value="' + cliente.cp + '"> ' +
-                                                            '</div> ' +
-                                                        '</div> ' +
-                                                        '<div class="form-group">' +
-                                                            '<label for="inputPassword3" class="col-sm-3 control-label">Provincia</label>' +
-                                                            '<div class="col-sm-9">' +
-                                                                '<input type="text" class="form-control" readonly value="' + cliente.provincia + '"> ' +
-                                                            '</div> ' +
-                                                        '</div> ' +
-                                                        '<div class="form-group">' +
-                                                            '<label for="inputPassword3" class="col-sm-3 control-label">Email</label>' +
-                                                            '<div class="col-sm-9">' +
-                                                                '<input type="text" class="form-control" readonly value="' + cliente.email + '"> ' +
-                                                            '</div> ' +
-                                                        '</div> ' +
-                                                        '<div class="form-group">' +
-                                                            '<label for="inputPassword3" class="col-sm-3 control-label">Usuario</label>' +
-                                                            '<div class="col-sm-9">' +
-                                                                '<input type="text" class="form-control" readonly value="' + cliente.usuario + '"> ' +
+                                                                '<input type="text" class="form-control" readonly value="';
+                                                                html += (usuario.admin == 1) ? "Admin" : "Usuario"
+                                                                html +=  '"> ' +
                                                             '</div> ' +
                                                         '</div> ' +
                                                     '</form>' +
@@ -787,35 +656,30 @@ $(document).ready(function ()
 
                         $('#contenido').html(html);
 
-                        $('#refresh_clients').click(cargarClientes);
-                        $('[data-delete-client]').click(eliminarCliente);
+                        $('#refresh_usuarios').click(cargarUsuarios);
+                        $('[data-delete-usuario]').click(eliminarUsuario);
 
-                        $('#tabla_clientes').DataTable({
-                            "language":
-                            {
-                                "url": "../js/spanish.json"
-                            }
-                        });
+                        $('#tabla_usuarios').DataTable();
                     }
                     else
                     {
-                        $('#contenido').html('<br/><div class="alert alert-warning">No se ha registrado ningún cliente</div>');
+                        $('#contenido').html('<br/><div class="alert alert-warning">No se ha registrado ningún usuario</div>');
                     }
                 }
                 else
                     toastr.error(respuesta.mensaje);
             },
-            error: function ()
+            error: function (jqXHR, textStatus, errorThrown)
             {
-                toastr.error('Ha habido problemas para cargar los clientes :(');
+                toastr.error('Ha habido problemas para cargar los usuarios :(');
             }
         });
     }
 
-    function cargarProductos()
+    function cargarLocales()
     {
         $.ajax({
-            url: '../get_products.php',
+            url: '../util/get_locales.php',
             dataType: 'json',
             type: 'get',
             data: {categoria : 0},
@@ -825,13 +689,13 @@ $(document).ready(function ()
             },
             success: function (respuesta)
             {
-                if(respuesta.productos.length > 0)
+                if(respuesta.locales.length > 0)
                 {
                     var categorias = '';
                     if (respuesta.estado == 'ok')
                     {
                         $.ajax({
-                            url: '../get_categories.php',
+                            url: '../util/get_categorias.php',
                             dataType: 'json',
                             type: 'get',
                             success: function(respuesta)
@@ -845,127 +709,135 @@ $(document).ready(function ()
                                         '<div class="panel-heading">' +
                                             '<div class="row">' +
                                                 '<div class="col-xs-4">' +
-                                                    '<h4>Productos</h4>' +
+                                                    '<h4>Locales</h4>' +
                                                 '</div>' +
                                                 '<div class="col-xs-8 text-right">' +
-                                                    '<button class="btn btn-success hidden-xs" data-toggle="modal" data-target="#modal_new_product"><span class="fa fa-plus-circle"></span> Nuevo producto</button> ' +
-                                                    '<button class="btn btn-success visible-xs-inline" data-toggle="modal" data-target="#modal_new_product"><span class="fa fa-plus-circle"></span></button> ' +
-                                                    '<button class="btn btn-default" id="refresh_products"><span class="fa fa-refresh fa-fw"></span></button>' +
+                                                    '<button class="btn btn-success hidden-xs" data-toggle="modal" data-target="#modal_new_local"><span class="fa fa-plus-circle"></span> Nuevo local</button> ' +
+                                                    '<button class="btn btn-success visible-xs-inline" data-toggle="modal" data-target="#modal_new_local"><span class="fa fa-plus-circle"></span></button> ' +
+                                                    '<button class="btn btn-default" id="refresh_locales"><span class="fa fa-refresh fa-fw"></span></button>' +
                                                 '</div>' +
                                             '</div>' +
                                         '</div>' +
                                         '<div class="panel-body" >' +
                                             '<div id="no-more-tables">' +
-                                                '<table id="tabla_productos" class="table">' +
+                                                '<table id="tabla_locales" class="table">' +
                                                     '<thead>' +
                                                         '<tr>' +
-                                                            '<th width="6%">Código</th>' +
-                                                            '<th width="10%">Categoría</th>' +
+                                                            '<th width="6%">ID</th>' +
+                                                            '<th width="6%">Categoría</th>' +
                                                             '<th width="60%">Nombre</th>' +
-                                                            '<th>PVP</th>' +
-                                                            '<th width="5%">Stock</th>' +
+                                                            '<th width="5%">Direccion</th>' +
                                                             '<th width="20%"></th>' +
                                                         '</tr>' +
                                                     '</thead>' +
                                                     '<tbody>';
-                                                    $.each(respuesta.productos, function (indice, producto)
+                                                    $.each(respuesta.locales, function (indice, local)
                                                     {
                                                         var rowOutStock = '';
-                                                        if(producto.stock == 0)
+                                                        if(local.stock == 0)
                                                             rowOutStock = 'danger';
-                                                        else if(producto.stock < 10)
+                                                        else if(local.stock < 10)
                                                             rowOutStock = 'warning';
-                                                        html += '<tr data-producto-list="' + producto.cod + '" class="' + rowOutStock + '">' +
-                                                                    '<td data-title="Código"> ' + producto.cod + ' </td>' +
-                                                                    '<td data-title="Categoría"> ' + producto.categoria + ' </td>' +
-                                                                    '<td data-title="Nombre"> ' + producto.nombre + ' </td>' +
-                                                                    '<td data-title="PVP" class="text-right"> ' + producto.pvp + ' </td>' +
-                                                                    '<td data-title="Stock" class="text-right"> ' + producto.stock + ' </td>' +
-                                                                    '<td class="text-right"> <button class="btn btn-default" type="button" data-toggle="modal" data-target="#details_product_' + producto.cod + '"><span class="fa fa-pencil fa-fw"></span></button> <button class="btn btn-danger" data-delete-product="' + producto.cod + '"><span class="fa fa-trash-o fa-fw"></span></button></td>' +
+                                                        html += '<tr data-local-list="' + local.id + '" class="' + rowOutStock + '">' +
+                                                                    '<td data-title="ID"> ' + local.id + ' </td>' +
+                                                                    '<td data-title="Categoría"> ' + local.categoria + ' </td>' +
+                                                                    '<td data-title="Nombre"> ' + local.nombre + ' </td>' +
+                                                                    '<td data-title="Direccion"> ' + local.direccion + ' </td>' +
+                                                                    '<td class="text-right"> <button class="btn btn-default" type="button" data-toggle="modal" data-target="#details_local_' + local.id + '"><span class="fa fa-pencil fa-fw"></span></button> <button class="btn btn-danger" data-delete-local="' + local.id + '"><span class="fa fa-trash-o fa-fw"></span></button></td>' +
                                                                 '</tr>';
                                                     });
                                 html += '</tbody></table></div></div></div>';
 
-                                $.each(respuesta.productos, function (indice, producto)
+                                $.each(respuesta.locales, function (indice, local)
                                 {
-                                    html += '<div class="modal fade" id="details_product_' + producto.cod + '" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">' +
+                                    html += '<div class="modal fade" id="details_local_' + local.id + '" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">' +
                                         '<div class="modal-dialog modal-lg"> ' +
                                             '<div class="modal-content">' +
                                                 '<div class="modal-header">' +
                                                     '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
-                                                    '<h4 class="modal-title">' + producto.nombre + '</h4>' +
+                                                    '<h4 class="modal-title">' + local.nombre + '</h4>' +
                                                 '</div>' +
                                                 '<div class="modal-body">' +
                                                     '<ul class="nav nav-tabs">' +
-                                                        '<li class="active"><a id="link_tab_info_producto_' + producto.cod + '" href="#tab_info_producto_' + producto.cod + '" data-toggle="tab" aria-expanded="true">Información</a></li>' +
-                                                        '<li class=""><a id="link_tab_img_producto_' + producto.cod + '" href="#tab_img_producto_' + producto.cod + '" data-toggle="tab" aria-expanded="false">Imagen</a></li>' +
+                                                        '<li class="active"><a id="link_tab_info_local_' + local.id + '" href="#tab_info_local_' + local.id + '" data-toggle="tab" aria-expanded="true">Información</a></li>' +
+                                                        '<li class=""><a id="link_tab_img_local_' + local.id + '" href="#tab_img_local_' + local.id + '" data-toggle="tab" aria-expanded="false">Imagen</a></li>' +
                                                     '</ul>' +
                                                     '<div class="tab-content">' +
-                                                        '<div class="tab-pane fade active in" id="tab_info_producto_' + producto.cod + '" style="padding: 1em 0">' +
+                                                        '<div class="tab-pane fade active in" id="tab_info_local_' + local.id + '" style="padding: 1em 0">' +
                                                             '<div class="row">' +
                                                                 '<div class="col-xs-12">' +
                                                                     '<div class="form-group"> ' +
-                                                                        '<label class="control-label" for="product_name_' + producto.cod + '">Nombre</label> ' +
-                                                                        '<input class="form-control" id="product_name_' + producto.cod + '" type="text" value="' + producto.nombre + '"> ' +
-                                                                        '<p class="help-block" id="product_name_help_' + producto.cod + '"></p>' +
+                                                                        '<label class="control-label" for="local_name_' + local.id + '">Nombre</label> ' +
+                                                                        '<input class="form-control" id="local_name_' + local.id + '" type="text" value="' + local.nombre + '"> ' +
+                                                                        '<p class="help-block" id="local_name_help_' + local.id + '"></p>' +
                                                                     '</div>' +
                                                                     '<div class="form-group">' +
-                                                                        '<label class="control-label" for="product_desc_' + producto.cod + '">Descripción</label>' +
-                                                                        '<textarea class="form-control" rows="3" style="resize: vertical" id="product_desc_' + producto.cod + '">' + producto.descripcion + '</textarea>' +
-                                                                        '<p class="help-block" id="product_desc_help_' + producto.cod + '"></p>' +
+                                                                    '<label class="control-label" for="local_breve_desc_' + local.id + '">Breve descripción</label>' +
+                                                                    '<textarea class="form-control" rows="3" style="resize: vertical" id="local_breve_desc_' + local.id + '">' + local.breve_descripcion + '</textarea>' +
+                                                                    '<p class="help-block" id="local_breve_desc_help_' + local.id + '"></p>' +
+                                                                    '</div>' +
+                                                                    '<div class="form-group">' +
+                                                                        '<label class="control-label" for="local_desc_' + local.id + '">Descripción</label>' +
+                                                                        '<textarea class="form-control" rows="3" style="resize: vertical" id="local_desc_' + local.id + '">' + local.descripcion + '</textarea>' +
+                                                                        '<p class="help-block" id="local_desc_help_' + local.id + '"></p>' +
                                                                     '</div>' +
                                                                     '<div class="row">' +
                                                                         '<div class="col-xs-12 col-md-4">' +
                                                                             '<div class="form-group">' +
-                                                                                '<label class="" for="categories_' + producto.cod + '">Categoría</label>' +
-                                                                                '<select class="form-control" id="categories_' + producto.cod + '">';
+                                                                                '<label class="" for="categorias_' + local.id + '">Categoría</label>' +
+                                                                                '<select class="form-control" id="categorias_' + local.id + '">';
                                                                                     var selected = '';
                                                                                     $.each(categorias, function (i, categoria)
                                                                                     {
-                                                                                        if (categoria.nombre == producto.categoria)
+                                                                                        if (categoria.nombre == local.categoria)
                                                                                             selected = 'selected';
                                                                                         else
                                                                                             selected = '';
-                                                                                        html += '<option value="' + categoria.cod + '" ' + selected + '>' + categoria.nombre + '</option>';
+                                                                                        html += '<option value="' + categoria.id + '" ' + selected + '>' + categoria.nombre + '</option>';
                                                                                     });
                                                                                     html += '</select>' +
-                                                                                '<p class="help-block" id="product_categories_help_' + producto.cod + '"></p>' +
+                                                                                '<p class="help-block" id="local_categorias_help_' + local.id + '"></p>' +
                                                                             '</div>' +
                                                                         '</div>' +
                                                                         '<div class="col-xs-12 col-md-4">' +
                                                                             '<div class="form-group">' +
-                                                                                '<label class="" for="product_pvp_' + producto.cod + '">PVP</label>' +
-                                                                                '<input class="form-control" type="text" id="product_pvp_' + producto.cod + '" value="' + producto.pvp + '"/>' +
-                                                                                '<p class="help-block" id="product_pvp_help_' + producto.cod + '"></p>' +
+                                                                                '<label class="" for="local_lat_' + local.id + '">Latitud</label>' +
+                                                                                '<input class="form-control" type="text" id="local_lat_' + local.id + '" value="' + local.lat + '"/>' +
+                                                                                '<p class="help-block" id="local_lat_help_' + local.id + '"></p>' +
                                                                             '</div>' +
                                                                         '</div>' +
                                                                         '<div class="col-xs-12 col-md-4">' +
                                                                             '<div class="form-group">' +
-                                                                                '<label class="" for="product_stock_' + producto.cod + '">Stock</label>' +
-                                                                                '<input onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control" type="text" id="product_stock_' + producto.cod + '" value="' + producto.stock + '"/>' +
-                                                                                '<p class="help-block" id="product_stock_help_' + producto.cod + '"></p>' +
+                                                                                '<label class="" for="local_lng_' + local.id + '">Longitud</label>' +
+                                                                                '<input class="form-control" type="text" id="local_lng_' + local.id + '" value="' + local.lng + '"/>' +
+                                                                                '<p class="help-block" id="local_lng_help_' + local.id + '"></p>' +
                                                                             '</div>' +
                                                                         '</div>' +
+                                                                    '</div>' +
+                                                                    '<div class="form-group">' +
+                                                                        '<label class="control-label" for="local_direccion_' + local.id + '">Dirección</label>' +
+                                                                            '<input class="form-control" type="text" id="local_direccion_' + local.id + '" value="' + local.direccion + '"/>' +
+                                                                        '<p class="help-block" id="local_direccion_help_' + local.id + '"></p>' +
                                                                     '</div>' +
                                                                 '</div>' +
                                                             '</div>' +
                                                         '</div> ' +
-                                                        '<div class="tab-pane fade" id="tab_img_producto_' + producto.cod + '" style="padding: 1em 0"> ' +
+                                                        '<div class="tab-pane fade" id="tab_img_local_' + local.id + '" style="padding: 1em 0"> ' +
                                                             '<div class="row">' +
                                                                 '<div class="col-xs-12 col-md-4">' +
                                                                     '<label>Imagen actual</label>';
-                                                                    if(producto.img != "")
-                                                                        html += '<img src="../img/' +  producto.img + '" class="img-responsive img-rounded"> ';
+                                                                    if(local.img != "")
+                                                                        html += '<img src="../img/local/' +  local.img + '" class="img-responsive img-rounded"> ';
                                                                     else
-                                                                        html += '<img src="../img/no-image.jpg" class="img-responsive img-rounded"> ';
+                                                                        html += '<img src="../img/local/no-image.jpg" class="img-responsive img-rounded"> ';
                                                                 html += '</div>' +
                                                                 '<div class="col-xs-12 col-md-8">' +
-                                                                    '<form action="" id="upload_img_product_' + producto.cod + '" method="post" enctype="multipart/form-data">' +
+                                                                    '<form action="" id="upload_img_local_' + local.id + '" method="post" enctype="multipart/form-data">' +
                                                                         '<div class="form-group">' +
-                                                                            '<label for="product_img_' + producto.cod + '">Subir imagen</label>' +
-                                                                            '<input type="file" name="file" class="form-control" id="product_img_' + producto.cod + '"/>' +
-                                                                            '<input type="hidden" name="cod_product" value="' + producto.cod + '"/>' +
-                                                                            '<p class="help-block" id="product_img_help_' + producto.cod + '">Déjela en blanco si no desea cambiarla</p>' +
+                                                                            '<label for="local_img_' + local.id + '">Subir imagen</label>' +
+                                                                            '<input type="file" name="file" class="form-control" id="local_img_' + local.id + '"/>' +
+                                                                            '<input type="hidden" name="id_local" value="' + local.id + '"/>' +
+                                                                            '<p class="help-block" id="local_img_help_' + local.id + '">Déjela en blanco si no desea cambiarla</p>' +
                                                                         '</div>' +
                                                                     '</form>' +
                                                                 '</div>' +
@@ -974,80 +846,90 @@ $(document).ready(function ()
                                                     '</div>' +
                                                 '</div>' +
                                                 '<div class="modal-footer">' +
-                                                    '<button type="button" data-loading-text="Guardando..." class="btn btn-primary" data-product-save="' + producto.cod + '">Guardar</button>' +
+                                                    '<button type="button" data-loading-text="Guardando..." class="btn btn-primary" data-local-save="' + local.id + '">Guardar</button>' +
                                                 '</div>' +
                                             '</div> ' +
                                         '</div> ' +
                                     '</div>';
                                 });
 
-                                html += '<div class="modal fade" tabindex="-1" role="dialog" id="modal_new_product" aria-hidden="true">' +
+                                html += '<div class="modal fade" tabindex="-1" role="dialog" id="modal_new_local" aria-hidden="true">' +
                                             '<div class="modal-dialog modal-lg">' +
                                                 '<div class="modal-content">' +
                                                     '<div class="modal-header">' +
                                                         '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
-                                                        '<h4 class="modal-title">Nuevo producto</h4>' +
+                                                        '<h4 class="modal-title">Nuevo local</h4>' +
                                                     '</div>' +
                                                     '<div class="modal-body">' +
                                                         '<ul class="nav nav-tabs">' +
-                                                            '<li class="active"><a id="link_tab_info_producto_-1" href="#tab_info_producto_-1" data-toggle="tab" aria-expanded="true">Información</a></li>' +
-                                                            '<li class=""><a id="link_tab_img_producto_-1" href="#tab_img_producto_-1" data-toggle="tab" aria-expanded="false">Imagen</a></li>' +
+                                                            '<li class="active"><a id="link_tab_info_local_-1" href="#tab_info_local_-1" data-toggle="tab" aria-expanded="true">Información</a></li>' +
+                                                            '<li class=""><a id="link_tab_img_local_-1" href="#tab_img_local_-1" data-toggle="tab" aria-expanded="false">Imagen</a></li>' +
                                                         '</ul>' +
                                                         '<div class="tab-content">' +
-                                                            '<div class="tab-pane fade active in" id="tab_info_producto_-1" style="padding: 1em 0">' +
+                                                            '<div class="tab-pane fade active in" id="tab_info_local_-1" style="padding: 1em 0">' +
                                                                 '<div class="row">' +
                                                                     '<div class="col-xs-12">' +
                                                                         '<div class="form-group"> ' +
-                                                                            '<label class="control-label" for="product_name_-1">Nombre</label> ' +
-                                                                            '<input class="form-control" id="product_name_-1" type="text"> ' +
-                                                                            '<p class="help-block" id="product_name_help_-1"></p>' +
+                                                                            '<label class="control-label" for="local_name_-1">Nombre</label> ' +
+                                                                            '<input class="form-control" id="local_name_-1" type="text"> ' +
+                                                                            '<p class="help-block" id="local_name_help_-1"></p>' +
                                                                         '</div>' +
                                                                         '<div class="form-group">' +
-                                                                            '<label class="control-label" for="product_desc_-1">Descripción</label>' +
-                                                                            '<textarea class="form-control" rows="3" style="resize: vertical" id="product_desc_-1"></textarea>' +
-                                                                            '<p class="help-block" id="product_desc_help_-1"></p>' +
+                                                                            '<label class="control-label" for="local_breve_desc_-1">Breve descripción</label>' +
+                                                                            '<textarea class="form-control" rows="3" style="resize: vertical" id="local_breve_desc_-1"></textarea>' +
+                                                                            '<p class="help-block" id="local_breve_desc_help_-1"></p>' +
+                                                                        '</div>' +
+                                                                        '<div class="form-group">' +
+                                                                            '<label class="control-label" for="local_desc_-1">Descripción</label>' +
+                                                                            '<textarea class="form-control" rows="3" style="resize: vertical" id="local_desc_-1"></textarea>' +
+                                                                            '<p class="help-block" id="local_desc_help_-1"></p>' +
                                                                         '</div>' +
                                                                         '<div class="row">' +
                                                                             '<div class="col-xs-12 col-md-4">' +
                                                                                 '<div class="form-group">' +
-                                                                                    '<label class="" for="categories_-1">Categoría</label>' +
-                                                                                    '<select class="form-control" id="categories_-1">' +
+                                                                                    '<label class="" for="categorias_-1">Categoría</label>' +
+                                                                                    '<select class="form-control" id="categorias_-1">' +
                                                                                         '<option value="a" selected>Seleccione...</option>';
                                                                                         $.each(categorias, function (indice, categoria)
                                                                                         {
-                                                                                            html += '<option value="' + categoria.cod + '">' + categoria.nombre + '</option>';
+                                                                                            html += '<option value="' + categoria.id + '">' + categoria.nombre + '</option>';
                                                                                         });
                                                                                         html += '</select>' +
-                                                                                        '<p class="help-block" id="product_categories_help_-1"></p>' +
+                                                                                        '<p class="help-block" id="local_categorias_help_-1"></p>' +
                                                                                 '</div>' +
                                                                             '</div>' +
                                                                             '<div class="col-xs-12 col-md-4">' +
                                                                                 '<div class="form-group">' +
-                                                                                    '<label class="" for="product_pvp_-1">PVP</label>' +
-                                                                                    '<input class="form-control" type="text" id="product_pvp_-1">' +
-                                                                                    '<p class="help-block" id="product_pvp_help_-1"></p>' +
+                                                                                    '<label class="" for="local_lat_-1">Latitud</label>' +
+                                                                                    '<input class="form-control" type="text" id="local_lat_-1"/>' +
+                                                                                    '<p class="help-block" id="local_lat_help_-1"></p>' +
                                                                                 '</div>' +
                                                                             '</div>' +
                                                                             '<div class="col-xs-12 col-md-4">' +
                                                                                 '<div class="form-group">' +
-                                                                                    '<label class="" for="product_stock_-1">Stock</label>' +
-                                                                                    '<input onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control" type="text" id="product_stock_-1"/>' +
-                                                                                    '<p class="help-block" id="product_stock_help_-1"></p>' +
+                                                                                    '<label class="" for="local_lng_-1">Longitud</label>' +
+                                                                                    '<input class="form-control" type="text" id="local_lng_-1"/>' +
+                                                                                    '<p class="help-block" id="local_lng_help_-1"></p>' +
                                                                                 '</div>' +
                                                                             '</div>' +
+                                                                        '</div>' +
+                                                                        '<div class="form-group">' +
+                                                                            '<label class="control-label" for="local_direccion_-1">Dirección</label>' +
+                                                                            '<input class="form-control" type="text" id="local_direccion_-1"/>' +
+                                                                            '<p class="help-block" id="local_direccion_help_-1"></p>' +
                                                                         '</div>' +
                                                                     '</div>' +
                                                                 '</div>' +
                                                             '</div> ' +
-                                                            '<div class="tab-pane fade" id="tab_img_producto_-1" style="padding: 1em 0"> ' +
+                                                            '<div class="tab-pane fade" id="tab_img_local_-1" style="padding: 1em 0"> ' +
                                                                 '<div class="row">' +
                                                                     '<div class="col-xs-12">' +
-                                                                        '<form action="" id="upload_img_product_-1" method="post" enctype="multipart/form-data">' +
+                                                                        '<form action="" id="upload_img_local_-1" method="post" enctype="multipart/form-data">' +
                                                                             '<div class="form-group">' +
-                                                                                '<label for="product_img_-1">Subir imagen</label>' +
-                                                                                '<input type="file" name="file" class="form-control" id="product_img_-1"/>' +
-                                                                                '<input type="hidden" name="cod_product" id="new_cod_product_hidden"/>' +
-                                                                                '<p class="help-block" id="product_img_help_-1">Déjela en blanco si no desea cambiarla</p>' +
+                                                                                '<label for="local_img_-1">Subir imagen</label>' +
+                                                                                '<input type="file" name="file" class="form-control" id="local_img_-1"/>' +
+                                                                                '<input type="hidden" name="id_local" id="new_id_local_hidden"/>' +
+                                                                                '<p class="help-block" id="local_img_help_-1">Déjela en blanco si no desea cambiarla</p>' +
                                                                             '</div>' +
                                                                         '</form>' +
                                                                     '</div>' +
@@ -1056,22 +938,22 @@ $(document).ready(function ()
                                                         '</div>' +
                                                     '</div>' +
                                                     '<div class="modal-footer">' +
-                                                        '<button type="button" data-loading-text="Guardando..." class="btn btn-primary" data-product-save="-1">Guardar</button>' +
+                                                        '<button type="button" data-loading-text="Guardando..." class="btn btn-primary" data-local-save="-1">Guardar</button>' +
                                                     '</div>' +
                                                 '</div>' +
                                             '</div>';
 
                                 $('#contenido').html(html);
 
-                                $('#refresh_products').click(cargarProductos);
+                                $('#refresh_locales').click(cargarLocales);
 
-                                $('[data-product-save]').click(guardarProducto);
-                                $('[data-delete-product]').click(eliminarProducto);
+                                $('[data-local-save]').click(guardarLocal);
+                                $('[data-delete-local]').click(eliminarLocal);
 
-                                $('#tabla_productos').DataTable({
+                                $('#tabla_locales').DataTable({
                                     "language":
                                     {
-                                        "url": "../js/spanish.json"
+                                        "url": "../js/jquery.dataTables.spanish.json"
                                     }
                                 });
 
@@ -1082,11 +964,11 @@ $(document).ready(function ()
                         toastr.error(respuesta.mensaje);
                 }
                 else
-                    $('#contenido').html('<br><div class="alert alert-warning">No hay productos registrados</div>');
+                    $('#contenido').html('<br><div class="alert alert-warning">No hay locales registrados</div>');
             },
             error: function (xhr)
             {
-                toastr.error('Ha habido problemas para obtener los productos :(');
+                toastr.error('Ha habido problemas para obtener los locales :(');
                 $('#contenido').html('');
             }
         });
@@ -1095,7 +977,7 @@ $(document).ready(function ()
     function cargarCategorias()
     {
         $.ajax({
-            url: '../get_categories.php',
+            url: '../util/get_categorias.php',
             dataType: 'json',
             type: 'get',
             beforeSend: function ()
@@ -1118,7 +1000,7 @@ $(document).ready(function ()
                                                 '<div class="col-xs-8 text-right">' +
                                                     '<button class="btn btn-success hidden-xs" data-toggle="modal" data-target="#modal_categoria_-1"><span class="fa fa-plus-circle fa-fw"></span> Nueva categoría</button> ' +
                                                     '<button class="btn btn-success visible-xs-inline" data-toggle="modal" data-target="#modal_categoria_-1"><span class="fa fa-plus-circle fa-fw"></span></button> ' +
-                                                    '<button class="btn btn-default" id="refresh_categories"><span class="fa fa-refresh fa-fw"></span></button>' +
+                                                    '<button class="btn btn-default" id="refresh_categorias"><span class="fa fa-refresh fa-fw"></span></button>' +
                                                 '</div>' +
                                             '</div>' +
                                         '</div>' +
@@ -1127,7 +1009,7 @@ $(document).ready(function ()
                                                 '<table id="tabla_categorias" class="table">' +
                                                     '<thead>' +
                                                         '<tr>' +
-                                                            '<th>Cod.</th>' +
+                                                            '<th>ID</th>' +
                                                             '<th>Nombre</th>' +
                                                             '<th></th>' +
                                                         '</tr>' +
@@ -1136,11 +1018,11 @@ $(document).ready(function ()
                                                         $.each(respuesta.categorias, function (indice, categoria)
                                                         {
                                                             html += '<tr>' +
-                                                                        '<td data-title="Cod.">' + categoria.cod + '</td>' +
+                                                                        '<td data-title="ID">' + categoria.id + '</td>' +
                                                                         '<td data-title="Nombre">' + categoria.nombre + '</td>' +
                                                                         '<td data-title="">' +
-                                                                            '<button class="btn btn-default" data-toggle="modal" data-target="#modal_categoria_' + categoria.cod + '"><span class="fa fa-pencil fa-fw"></span></button> ' +
-                                                                            '<button class="btn btn-danger" data-delete-category="' + categoria.cod + '"><span class="fa fa-trash fa-fw"></span></button>' +
+                                                                            '<button class="btn btn-default" data-toggle="modal" data-target="#modal_categoria_' + categoria.id + '"><span class="fa fa-pencil fa-fw"></span></button> ' +
+                                                                            '<button class="btn btn-danger" data-delete-categoria="' + categoria.id + '"><span class="fa fa-trash fa-fw"></span></button>' +
                                                                         '</td>' +
                                                                     '</tr>';
                                                         });
@@ -1152,7 +1034,7 @@ $(document).ready(function ()
 
                                     $.each(respuesta.categorias, function (indice, categoria)
                                     {
-                                        html += '<div class="modal fade" id="modal_categoria_' + categoria.cod + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">' +
+                                        html += '<div class="modal fade" id="modal_categoria_' + categoria.id + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">' +
                                                     '<div class="modal-dialog">' +
                                                         '<div class="modal-content">' +
                                                             '<div class="modal-header">' +
@@ -1162,16 +1044,16 @@ $(document).ready(function ()
                                                             '<div class="modal-body">' +
                                                                 '<form class="form-horizontal">' +
                                                                     '<div class="form-group">' +
-                                                                        '<label for="name_category_' + categoria.cod + '" class="col-sm-3 control-label">Nombre</label>' +
+                                                                        '<label for="name_categoria_' + categoria.id + '" class="col-sm-3 control-label">Nombre</label>' +
                                                                         '<div class="col-sm-9">' +
-                                                                            '<input id="name_category_' + categoria.cod + '" type="text" class="form-control" value="' + categoria.nombre + '"> ' +
+                                                                            '<input id="name_categoria_' + categoria.id + '" type="text" class="form-control" value="' + categoria.nombre + '"> ' +
                                                                         '</div>' +
-                                                                        '<p class="help-block" id="name_category_help_' + categoria.cod + '"></p>' +
+                                                                        '<p class="help-block" id="name_categoria_help_' + categoria.id + '"></p>' +
                                                                     '</div> ' +
                                                                 '</form>' +
                                                             '</div>' +
                                                             '<div class="modal-footer">' +
-                                                                '<button type="button" data-loading-text="Guardando..." class="btn btn-primary" data-category-save="' + categoria.cod + '">Guardar</button>' +
+                                                                '<button type="button" data-loading-text="Guardando..." class="btn btn-primary" data-categoria-save="' + categoria.id + '">Guardar</button>' +
                                                             '</div>' +
                                                         '</div>' +
                                                     '</div>' +
@@ -1188,16 +1070,16 @@ $(document).ready(function ()
                                             '<div class="modal-body">' +
                                                 '<form class="form-horizontal">' +
                                                     '<div class="form-group">' +
-                                                        '<label for="name_category_-1" class="col-sm-3 control-label">Nombre</label>' +
+                                                        '<label for="name_categoria_-1" class="col-sm-3 control-label">Nombre</label>' +
                                                         '<div class="col-sm-9">' +
-                                                            '<input id="name_category_-1" type="text" class="form-control"> ' +
+                                                            '<input id="name_categoria_-1" type="text" class="form-control"> ' +
                                                         '</div>' +
-                                                        '<p class="help-block" id="name_category_help_-1"></p>' +
+                                                        '<p class="help-block" id="name_categoria_help_-1"></p>' +
                                                     '</div> ' +
                                                 '</form>' +
                                             '</div>' +
                                             '<div class="modal-footer">' +
-                                                '<button type="button" data-loading-text="Guardando..." class="btn btn-primary" data-category-save="-1">Guardar</button>' +
+                                                '<button type="button" data-loading-text="Guardando..." class="btn btn-primary" data-categoria-save="-1">Guardar</button>' +
                                             '</div>' +
                                         '</div>' +
                                     '</div>' +
@@ -1205,15 +1087,15 @@ $(document).ready(function ()
 
                         $('#contenido').html(html);
 
-                        $('[data-category-save]').click(guardarCategoria);
+                        $('[data-categoria-save]').click(guardarCategoria);
 
-                        $('#refresh_categories').click(cargarCategorias);
-                        $('[data-delete-category]').click(eliminarCategoria);
+                        $('#refresh_categorias').click(cargarCategorias);
+                        $('[data-delete-categoria]').click(eliminarCategoria);
 
                         $('#tabla_categorias').DataTable({
                             "language":
                             {
-                                "url": "../js/spanish.json"
+                                "url": "../js/jquery.dataTables.spanish.json"
                             }
                         });
                     }

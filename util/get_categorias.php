@@ -1,5 +1,5 @@
 <?php
-require_once('util/DB.php');
+require_once('DB.php');
 $dbh = DB::getInstancia()->getDbh();
 $categorias = array();
 if($res = $dbh->query('SELECT * FROM categoria'))
@@ -7,7 +7,7 @@ if($res = $dbh->query('SELECT * FROM categoria'))
     if($res->rowCount() > 0)
     {
         while ($fila = $res->fetchObject())
-            $categorias[] = array('cod' => $fila->cod, 'nombre' => $fila->nombre);
+            $categorias[] = array('id' => $fila->id, 'nombre' => $fila->nombre);
 
         echo json_encode(array('estado' => 'ok', 'categorias' => $categorias));
     }

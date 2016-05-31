@@ -36,7 +36,7 @@ if(!isset($_SESSION['usuario']) || $_SESSION['usuario']->getAdmin()==0)
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href=".." target="_blank">Ocio Palaciego <span class="fa fa-external-link"></span></a></li>
-                <li><p class="navbar-btn"><button class="btn btn-default" id="logout_admin"><span class="fa fa-sign-out fa-fw"></span> Salir</button></p></li>
+                <li><p class="navbar-btn"><button class="btn btn-default" id="logout"><span class="fa fa-sign-out fa-fw"></span> Cerrar sesión</button></p></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -50,10 +50,9 @@ if(!isset($_SESSION['usuario']) || $_SESSION['usuario']->getAdmin()==0)
                     <!-- Main Menu -->
                     <div class="side-menu-container">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#" id="sales_list"><span class="fa fa-line-chart fa-fw"></span> Ventas</a></li>
-                            <li><a href="#" id="clients_list"><span class="fa fa-users fa-fw"></span> Usuarios</a></li>
-                            <li><a href="#" id="product_list"><span class="fa fa-cubes fa-fw"></span> Locales</a></li>
-                            <li><a href="#" id="categories_list"><span class="fa fa-list-ul fa-fw"></span> Categorías</a></li>
+                            <li><a href="#" id="lista_usuarios"><span class="fa fa-users fa-fw"></span> Usuarios</a></li>
+                            <li><a href="#" id="lista_categorias"><span class="fa fa-list-ul fa-fw"></span> Categorías</a></li>
+                            <li><a href="#" id="lista_locales"><span class="fa fa-cubes fa-fw"></span> Locales</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </nav>
@@ -69,6 +68,6 @@ if(!isset($_SESSION['usuario']) || $_SESSION['usuario']->getAdmin()==0)
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/toastr.min.js"></script>
 <script src="../js/jquery.dataTables.min.js"></script>
-<script src="../js/js_admin.js"></script>
+<script src="../js/custom_admin.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@ class DB extends PDO
 
     function __construct()
     {
-        $this->conectar('mysql:host=localhost;charset=utf8;dbname=ociolp', 'root', '');
+        $this->conectar('mysql:host=localhost;charset=utf8;dbname=ociolp', 'root', 'vertrigo');
     }
     public static function getInstancia()
     {

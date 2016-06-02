@@ -12,9 +12,8 @@ die();
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <script src="js/jquery.js"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDZ3QtDNa8RYGLchU4MBSZAYnvUH-2vFsI&sensor=false"></script>
     <?php include "plantillas/head.php"; ?>
+    <link rel="stylesheet" href="css/rangeSlider.min.css">
 </head>
 <body>
     <?php include "plantillas/header.php"; ?>
@@ -23,7 +22,7 @@ die();
     </div>-->
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container cuerpo">
 
         <div class="row">
 
@@ -33,7 +32,7 @@ die();
                 <!-- Blog Post -->
 
                 <!-- Title -->
-                <h2 id="local_nombre">Nombre Local</h2>
+                <h3 id="local_nombre">Nombre Local</h3>
 
                 <!-- Author -->
                 <p id="local_categoria" class="lead">Categoria Local</p>
@@ -41,12 +40,14 @@ die();
                 <hr>
 
                 <!-- Date/Time -->
-                <p><span class="fa fa-map-marker"></span> <span id="local_direccion">Avenida Utrera</span></p>
+                <p><span class="fa fa-map-marker"></span> <span id="local_direccion">Direccion</span></p>
 
                 <hr>
 
                 <!-- Preview Image -->
-                <img id="local_imagen" class="img-responsive" src="http://placehold.it/900x300" alt="Imagen del local">
+                <div id="divImg">
+                    <img id="local_img" class="img-responsive" src="http://placehold.it/900x300" alt="Imagen del local">
+                </div>
 
                 <hr>
 
@@ -56,44 +57,110 @@ die();
 
                 <hr>
 
+
+
                 <!-- Blog Comments -->
+                <?php
+
+
+                ?>
+                <!-- Puntuacion -->
+
+                <h4><i class="fa fa-heart" aria-hidden="true"></i> Puntuacion media del local: <span id="puntuacion">5</span> / 10</h4>
+                <p>¿Has visitado este local y quieres dar tu opinion?</p>
 
                 <!-- Comments Form -->
-                <div class="well">
+                <div class="well" id="valoracion">
                     <h4>Deja tu valoración:</h4>
                     <form role="form" id="formComentario">
                         <div class="form-group">
                             <textarea class="form-control" rows="3" id="inputComentario" name="inputComentario"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <p>Tu Puntuacion: <span id="puntuacionOutput"></span></p>
+                        <input id="puntuacion" type=range min=0 max=10 value=5 step=0.5 data-rangeSlider>
+                        <hr>
+                        <p>
+                            <small>En caso de que ya hayas valorado antes este local, el comentario y puntuación que introduzcas ahora sustituirá al antiguo.
+                            </small>
+                        </p>
+                        <hr>
+                        <p class="text-center"><button type="submit" class="btn btn-primary">Enviar</button></p>
                     </form>
                 </div>
 
                 <hr>
 
-                <!-- Posted Comments -->
 
-                <!-- Comment -->
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object comentarioImagen" src="http://placehold.it/64x64" alt="">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading comentarioAutor">Start Bootstrap
-                            <small class="comentarioFecha">August 25, 2014 at 9:30 PM</small>
-                        </h4>
-                        <h3 class="puntuacion"></h3>
-                        <p class="comentario">
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        </p>
+
+                <!-- Posted Comments -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>VALORACIONES</h4>
+                    </div>
+                    <div id="comentarios" class="panel-body">
+                        <div class="divComentario">
+                            <!-- Comment -->
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object comentarioImagen" src="http://placehold.it/64x64" alt="" width="64px" height="64px">
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading comentarioAutor">Rogelio Ramos
+                                        <small class="comentarioFecha">August 26, 2014 at 9:30 PM</small>
+                                    </h4>
+                                    <p class="comentario">
+                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                    </p>
+                                    <p class="pull-right comentarioPuntuacion" style="text-decoration: underline">Puntuacion: 3 / 10</p>
+                                </div>
+                            </div>
+                        </div>
+<hr>
+                        <div class="divComentario">
+                            <!-- Comment -->
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object comentarioImagen" src="http://placehold.it/64x64" alt="" width="64px" height="64px">
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading comentarioAutor">Antonio Manuel
+                                        <small class="omentarioFecha">August 25, 2014 at 9:30 PM</small>
+                                    </h4>
+                                    <p class="comentario">
+                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                    </p>
+                                    <p class="pull-right comentarioPuntuacion" style="text-decoration: underline">Puntuacion: 7 / 10</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <?php /*
+                <div id="comentarios">
+                    <!-- Comment -->
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                            <img class="media-object comentarioImagen" src="http://placehold.it/64x64" alt="" width="64px" height="64px">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading comentarioAutor">Start Bootstrap
+                                <small class="comentarioFecha">August 25, 2014 at 9:30 PM</small>
+                            </h4>
+                            <h3 class="comentarioPuntuacion"></h3>
+                            <p class="comentario">
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                */?>
             </div>
         </div>
     </div>
 
     <?php include "plantillas/footer.php"; ?>
-    <script src="js/locales.js"></script>
+    <script src="js/rangeSlider.min.js"></script>
+    <script src="js/local.js"></script>
 </body>
 </html>

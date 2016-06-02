@@ -161,7 +161,7 @@ $(document).ready(function() {
                 +'<div class="panel-footer" style="bottom: 0px">'
                     +local['direccion']
                     +'<span style="float : right;margin-left: 5px;">'
-                        +'<a href="http://'+url+'?local='+local['id']+'#comentarios"><i class="fa fa-heart" aria-hidden="true"></i>5</a>'
+                        +'<a href="http://'+url+'?local='+local['id']+'#comentarios"><i class="fa fa-heart" aria-hidden="true"></i>/10</a>'
                     +'</span>'
                     +'</div>'
                 +'</div>'

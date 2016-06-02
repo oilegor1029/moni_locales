@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-md-6 footer-menu text-right">
                     <ul class="list-inline">
-                        <li><a href="ndex.html">Mapa Moñi</a></li>
+                        <li><a href="index.html">Mapa Moñi</a></li>
                         <li><a href="locales.php">Locales</a></li>
                         <li><a href="contacto.php">Contacta con nosotros</a></li>
                         <li><a href="usuario.php">Usuario</a></li>
@@ -54,5 +54,6 @@
     ============================================================= -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/custom.js"></script>
+<script src="js/toastr.min.js"></script>
 <script src="js/database.js"></script>
+<script src="js/custom.js"></script>

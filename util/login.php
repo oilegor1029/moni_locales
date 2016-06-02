@@ -12,18 +12,19 @@ if(isset($_POST['datos']))
         if($res->rowCount() > 0)
         {
             $fila = $res->fetchObject();
-            $_SESSION['usuario'] = new Usuario(
-                $fila->id ,
-                $fila->email,
-                $fila->nombre,
-                $fila->apellidos,
-                $fila->descripcion,
-                $fila->admin
-            );
-            if (isset($datos->admin) && $fila->admin == 0 ) //LOGIN SOLO PARA ADMIN
+            if (isset($datos->admin) && $fila->admin == 0 ) //SI LOGIN SOLO PARA ADMIN Y NO LO ES
                 echo json_encode(array('estado' => 'error', 'mensaje' => 'El email o contraseña es incorrecto'));
-            else
+            else{
+                $_SESSION['usuario'] = new Usuario(
+                    $fila->id ,
+                    $fila->email,
+                    $fila->nombre,
+                    $fila->apellidos,
+                    $fila->descripcion,
+                    $fila->admin
+                );
                 echo json_encode(array('estado' => 'ok', 'mensaje' => '¡Ahora ya puedes postear!'));
+            }
         }
         else
             echo json_encode(array('estado' => 'error', 'mensaje' => 'El email o contraseña es incorrecto'));

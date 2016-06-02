@@ -191,6 +191,7 @@ class DB extends PDO
                         usuario INT NOT NULL,
                         local INT NOT NULL,
                         texto TEXT,
+                        puntuacion FLOAT NOT NULL ,
                         PRIMARY KEY (id),
                         FOREIGN KEY (usuario) REFERENCES usuario(id),
                         FOREIGN KEY (local) REFERENCES local(id)
@@ -199,20 +200,6 @@ class DB extends PDO
             )
                 return false;
 
-            if(!$this->dbh->query('CREATE TABLE votacion (
-                        id INT NOT NULL AUTO_INCREMENT,
-                        usuario INT NOT NULL,
-                        local INT NOT NULL,
-                        puntuacion FLOAT,
-                        PRIMARY KEY (id),
-                        FOREIGN KEY (usuario) REFERENCES usuario(id),
-                        FOREIGN KEY (local) REFERENCES local(id)
-                    );'
-                )
-            )
-                return false;
-
-            return true;
         }
         else
             return false;

@@ -53,10 +53,9 @@ function getCategorias(){
         success: function (respuesta) {
             if (respuesta.estado == 'ok') {
                 var categorias = respuesta.categorias;
-                alert(categorias);
                 return categorias;
             }else
-                alert(respuesta.mensaje);
+                alert("Fallo:"+respuesta.mensaje);
         },
         error: function (xhr)
         {

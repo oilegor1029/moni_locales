@@ -74,10 +74,10 @@ die();
                     <h4>Deja tu valoración:</h4>
                     <form role="form" id="formComentario">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3" id="inputComentario" name="inputComentario"></textarea>
+                            <textarea class="form-control" rows="3"  maxlength="250" minlength="10" id="inputComentario" name="inputComentario"></textarea>
                         </div>
                         <p>Tu Puntuacion: <span id="puntuacionOutput"></span></p>
-                        <input id="puntuacion" type=range min=0 max=10 value=5 step=0.5 data-rangeSlider>
+                        <input id="inputPuntuacion" type=range min=0 max=10 value=5 step=0.5 data-rangeSlider>
                         <hr>
                         <p>
                             <small>En caso de que ya hayas valorado antes este local, el comentario y puntuación que introduzcas ahora sustituirá al antiguo.

@@ -63,6 +63,7 @@ jQuery(document).ready(function() {
 
 
 });
+//Para coger el valor de la variable que quieras pasada por GET en URI
 function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),

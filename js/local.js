@@ -73,70 +73,36 @@ $(document).ready(function() {
         });
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //TU VALORACION
     $('#formComentario').submit(function() {
-        var todoOk = false;
-        if (todoOk){
-            //CAMBIA A PESTAÑA LOGIN CON MENSAJE DE REGISTRO CORRECTO
-            $('#mensajeLogin').html('Registro correcto. Inicia sesión con tus datos.');
-            this.reset();
-            $('#login-form-link').click();
-        } else {
-            //SE QUEDA MOSTRANDO ERROR
-        }
+        $.ajax({
+            url: 'util/hacer_comentario.php',
+            dataType: 'json',
+            type: 'post',
+            data:
+            {
+                datos: JSON.stringify
+                ({
+                    local: getUrlParameter("id"),
+                    texto: $('#inputComentario').val(),
+                    puntuacion: $('#inputPuntuacion').val()
+                })
+            },
+            success: function (respuesta)
+            {
+                if (respuesta.estado == 'ok')
+                    cargarComentarios();
+                else
+                    toastr.error(respuesta.mensaje);
+            },
+            error: function (xhr)
+            {
+                toastr.error('Ha habido problemas en el servidor :(');
+            }
+        });
+        this.reset();
         return false;
     });
-
 
     //INPUT RANGE
     var selector = '[data-rangeSlider]',

@@ -1,6 +1,6 @@
 <?php
 require_once('DB.php');
-require_once('../entities/Usuario.php');
+
 if(isset($_POST['datos']))
 {
     $datos = json_decode($_POST['datos']);

@@ -1,6 +1,5 @@
 <?php
 require_once('DB.php');
-require_once('../entities/Usuario.php');
 if(isset($_POST['datos']))
 {
     $datos = json_decode($_POST['datos']);
@@ -15,13 +14,13 @@ if(isset($_POST['datos']))
             if (isset($datos->admin) && $fila->admin == 0 ) //SI LOGIN SOLO PARA ADMIN Y NO LO ES
                 echo json_encode(array('estado' => 'error', 'mensaje' => 'El email o contraseña es incorrecto'));
             else{
-                $_SESSION['usuario'] = new Usuario(
-                    $fila->id ,
-                    $fila->email,
-                    $fila->nombre,
-                    $fila->apellidos,
-                    $fila->descripcion,
-                    $fila->admin
+                $_SESSION['usuario'] = array(
+                    'id' => $fila->id ,
+                    'email' => $fila->email,
+                    'nombre' => $fila->nombre,
+                    'apellidos' => $fila->apellidos,
+                    'descripcion' => $fila->descripcion,
+                    'admin' => $fila->admin
                 );
                 echo json_encode(array('estado' => 'ok', 'mensaje' => '¡Ahora ya puedes postear!'));
             }

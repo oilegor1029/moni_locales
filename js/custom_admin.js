@@ -60,7 +60,7 @@ $(document).ready(function ()
                 if (respuesta.estado == 'ok')
                 {
                     $('#mensajeLogin').html('Login correcto');
-                    return true;
+                    location.href = "";
                 }
                 else{
                     $('#mensajeLogin').html(respuesta.mensaje);
@@ -92,7 +92,7 @@ $(document).ready(function ()
     $('#logout').click(function ()
     {
         $.ajax({
-            url: 'logout.php',
+            url: '../util/logout.php',
             dataType: 'json',
             success: function (respuesta)
             {
@@ -107,7 +107,7 @@ $(document).ready(function ()
             }
         });
     });
-    
+
     $('#lista_usuarios').click(function ()
     {
         if(!$(this).parent().hasClass('active'))
@@ -719,6 +719,7 @@ $(document).ready(function ()
                                             '</div>' +
                                         '</div>' +
                                         '<div class="panel-body" >' +
+                                            //'<a class="btn btn-default center-block" href="javascript:genPDF()"><i class="fa fa-file-pdf-o fa-fw"></i>Descargar tabla en PDF</a>' +
                                             '<div id="no-more-tables">' +
                                                 '<table id="tabla_locales" class="table">' +
                                                     '<thead>' +
@@ -951,9 +952,36 @@ $(document).ready(function ()
                                 $('[data-delete-local]').click(eliminarLocal);
 
                                 $('#tabla_locales').DataTable({
+                                    "processing": true,
+                                    "dom": 'lBfrtip',
+                                    "buttons": [
+                                        {
+                                            extend: 'collection',
+                                            text: 'Exportar',
+                                            buttons: [
+                                                {
+                                                    extend: 'pdfHtml5',
+                                                    title: 'Locales OLP'
+                                                },
+                                                {
+                                                    extend: 'excelHtml5',
+                                                    title: 'Locales OLP'
+                                                },
+                                                {
+                                                    extend: 'csvHtml5',
+                                                    title: 'Locales OLP'
+                                                },
+                                                {
+                                                    extend: 'print',
+                                                    text: 'Imprimir',
+                                                    title: 'Locales Ocio Los Palacios'
+                                                }
+                                            ]
+                                        }
+                                    ],
                                     "language":
                                     {
-                                        "url": "../js/jquery.dataTables.spanish.json"
+                                        "url": "../js/lib/jquery.dataTables.spanish.json"
                                     }
                                 });
 
@@ -1111,4 +1139,5 @@ $(document).ready(function ()
             }
         });
     }
+
 });

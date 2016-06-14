@@ -9,7 +9,7 @@ if(isset($_SESSION['usuario'])){
 <html lang="es">
 <head>
     <?php
-    $name = "Login";
+    $name = "Cuenta";
     include "plantillas/head.php";
     ?>
     <link rel="stylesheet" href="css/cuenta.css">
@@ -42,10 +42,6 @@ if(isset($_SESSION['usuario'])){
                                     </div>
                                     <div class="form-group">
                                         <input type="password" required name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
-                                    </div>
-                                    <div class="form-group text-center">
-                                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                                        <label for="remember"> Recuerdame</label>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
@@ -106,7 +102,6 @@ Puedes escribir una descripción sobre ti para los usuarios que visiten tu perfi
                     </div>
                 </div>
                 
-                *
                 <div class="panel panel-login" id="panel2">
                     <div class="panel-heading">
                         <div class="row">

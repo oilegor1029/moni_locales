@@ -64,15 +64,15 @@ $(function() {
                 if (respuesta.estado == 'ok')
                 {
                     $('#mensajeLogin').html('Login correcto');
-                    return true;
+                    location.href = "";
                 }
                 else{
-                    $('#mensajeLogin').html(respuesta.mensaje);
+                    toastr.error(respuesta.mensaje);
                 }
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-                $('#mensajeLogin').html('Ha habido problemas para hacer login');
+                toastr.error('Ha habido problemas para hacer login');
                 if (jqXHR.status === 0) {
                     alert('Not connect: Verify Network.');
                 } else if (jqXHR.status == 404) {
@@ -91,6 +91,25 @@ $(function() {
             }
         });
         return false;
+    });
+
+    $('#logout').click(function ()
+    {
+        $.ajax({
+            url: 'logout.php',
+            dataType: 'json',
+            success: function (respuesta)
+            {
+                if (respuesta.estado == 'ok')
+                    location.href = "";
+                else
+                    toastr.error(respuesta.mensaje);
+            },
+            error: function (xhr)
+            {
+                toastr.error('Ha habido problemas al cerrar la sesión :(');
+            }
+        });
     });
 
     //REGISTER SUBMIT

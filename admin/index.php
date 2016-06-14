@@ -1,13 +1,12 @@
 <?php
-require_once('../entities/Usuario.php');
 session_start();
 if(isset($_SESSION['usuario'])){
-    if ($_SESSION['usuario']->getAdmin()!=0)    //Sesion de administrador activa
+    if ($_SESSION['usuario']['admin']!=0)    //Sesion de administrador activa
         header('Location: panel.php');              //Redirige al panel de administracion
     else{                                       //Sesion de cliente activa
         unset($_SESSION['usuario']);                //Cierra sesion de cuenta de cliente
-        echo "<h1>-" . $_SESSION['usuario']->getNombre() . "-</h1>";
-        echo "<h1>-" . $_SESSION['usuario']->getAdmin() . "-</h1>";
+        echo "<h1>-" . $_SESSION['usuario']['nombre'] . "-</h1>";
+        echo "<h1>-" . $_SESSION['usuario']['admin'] . "-</h1>";
     }
 }
 ?>
@@ -17,7 +16,7 @@ if(isset($_SESSION['usuario'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Acceso administración</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/lib/bootstrap.min.css"/>
     <link rel="stylesheet" href="../css/cuenta.css">
 
 </head>
@@ -72,8 +71,8 @@ if(isset($_SESSION['usuario'])){
     </div>
 </div>
 
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<script src="../js/lib/jquery.js"></script>
+<script src="../js/lib/bootstrap.min.js"></script>
 <script src="../js/custom_admin.js"></script>
 </body>
 </html>

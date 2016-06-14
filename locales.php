@@ -12,7 +12,7 @@ die();
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <script src="js/jquery.js"></script>
+    <script src="js/lib/jquery.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDZ3QtDNa8RYGLchU4MBSZAYnvUH-2vFsI&sensor=false"></script>
     <?php
     $name = "Locales";

@@ -12,7 +12,8 @@ class DB extends PDO
 
     function __construct()
     {
-        $this->conectar('mysql:host=localhost;charset=utf8;dbname=ociolp', 'root', 'vertrigo');
+        //$this->conectar('mysql:host=localhost;charset=utf8;dbname=ociolp', 'root', 'vertrigo');
+        $this->conectar('mysql:host=localhost;charset=utf8;dbname=ociolp', 'root', '');
     }
     public static function getInstancia()
     {
@@ -191,7 +192,8 @@ class DB extends PDO
                         usuario INT NOT NULL,
                         local INT NOT NULL,
                         texto TEXT,
-                        puntuacion FLOAT NOT NULL ,
+                        puntuacion FLOAT NOT NULL,
+                        fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                         PRIMARY KEY (id),
                         FOREIGN KEY (usuario) REFERENCES usuario(id),
                         FOREIGN KEY (local) REFERENCES local(id)

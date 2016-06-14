@@ -1,9 +1,7 @@
 <?php
-
 require_once('../util/DB.php');
-require_once('../entities/Usuario.php');
 session_start();
-if(!isset($_SESSION['usuario']) || $_SESSION['usuario']->getAdmin()==0)
+if(!isset($_SESSION['usuario']) || $_SESSION['usuario']['admin']==0)
     echo json_encode(array('estado' => 'error', 'mensaje' => 'Acceso denegado'));
 
 $dbh = DB::getInstancia()->getDbh();

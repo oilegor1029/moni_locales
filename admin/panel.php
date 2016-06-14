@@ -1,7 +1,6 @@
 <?php
-require_once('../entities/Usuario.php');
 session_start();
-if(!isset($_SESSION['usuario']) || $_SESSION['usuario']->getAdmin()==0)
+if(!isset($_SESSION['usuario']) || $_SESSION['usuario']['admin']==0)
     header('Location: index.php');
 ?>
 <!doctype html>
@@ -10,11 +9,12 @@ if(!isset($_SESSION['usuario']) || $_SESSION['usuario']->getAdmin()==0)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Panel de administración</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../css/toastr.min.css"/>
-    <link rel="stylesheet" href="../css/no.more.tables.css"/>
-    <link rel="stylesheet" href="../css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="../css/lib/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/lib/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../css/lib/toastr.min.css"/>
+    <link rel="stylesheet" href="../css/lib/no.more.tables.css"/>
+    <link rel="stylesheet" href="../css/lib/datatables.min.css"/>
+    <link rel="stylesheet" href="../css/lib/jquery.dataTables.min.css"/>
     <link rel="stylesheet" href="../css/admin.css"/>
 </head>
 <body>
@@ -64,10 +64,13 @@ if(!isset($_SESSION['usuario']) || $_SESSION['usuario']->getAdmin()==0)
     </div>
 </div>
 
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/toastr.min.js"></script>
-<script src="../js/jquery.dataTables.min.js"></script>
-<script src="../js/custom_admin.js"></script>
+<script type="text/javascript" src="../js/lib/jquery.js"></script>
+<script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/lib/toastr.min.js"></script>
+<script type="text/javascript" src="../js/custom_admin.js"></script>
+
+<script type="text/javascript" src="../js/lib/datatables.min.js"></script>
+
+
 </body>
 </html>

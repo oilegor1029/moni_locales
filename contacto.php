@@ -1,9 +1,10 @@
 <?php
+
 session_start();
 if(isset($_SESSION['usuario'])){
     $sesionIniciada = true;
-    $nombre = $_SESSION['usuario']->getNombre() . " " . $_SESSION['usuario']->getApellidos();
-    $email = $_SESSION['usuario']->getEmail();
+    $nombre = $_SESSION['usuario']['nombre'] . " " . $_SESSION['usuario']['apellidos'];
+    $email = $_SESSION['usuario']['email'];
 } else $sesionIniciada = false;
 ?>
 

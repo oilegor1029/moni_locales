@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once('DB.php');
-require_once('entities/Usuario.php');
 $dbh = DB::getInstancia()->getDbh();
 if(isset($_POST['datos']))
 {

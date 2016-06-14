@@ -32,7 +32,6 @@
                                 <!-- Collect the nav links, forms, and other content for toggling -->
                                 <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="index.php" >Mapa Moñi</a></li>
                                         <li><a href="locales.php" >Locales</a></li>
                                         <li><a href="contacto.php" >Contacta con nosotros</a></li>
                                         <li><a href="usuario.php" >Usuario</a></li>

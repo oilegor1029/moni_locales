@@ -11,35 +11,29 @@ if(isset($_POST['datos']))
     $datos = json_decode($_POST['datos']);
     $todoCorrecto = true;
 
-    if(!preg_match('/([A-Za-zñÑ\s]){10,250}/', $datos->texto))
-        $todoCorrecto = false;
+    //if(!preg_match('/([A-Za-zñÑ\s]){10,250}/', $datos->texto))
+        //$todoCorrecto = false;
 
-    if(!preg_match('/^[\d]$/', $datos->puntuacion))
-        $todoCorrecto = false;
+    //if(!preg_match('/^[\d]$/', $datos->puntuacion))
+        //$todoCorrecto = false;
 
     if($todoCorrecto)
     {
-        $res = $dbh->query('SELECT * FROM local WHERE id = ' . $datos->id);
         if($datos->opcion == 'nuevo')
         {
-            if($dbh->query('INSERT INTO local VALUES (NULL, "' . $datos->nombre . '", "' . $datos->breve_descripcion . '", "' . $datos->descripcion . '", "' . $datos->direccion . '", ' . $datos->lat . ', ' . $datos->lng . ', ' . $datos->categoria . ', "")'))
-                echo json_encode(array('estado' => 'ok', 'lastId' => $dbh->lastInsertId(), 'mensaje' => 'Local registrado correctamente'));
+            if($dbh->query('INSERT INTO comentario VALUES (NULL, ' . $datos->usuarioID . ', ' . $datos->localID . ', "' . $datos->texto . '", ' . $datos->puntuacion . ', NULL)'))
+                echo json_encode(array('estado' => 'ok', 'lastId' => $dbh->lastInsertId(), 'mensaje' => 'Valoracion registrada correctamente'));
             else
-                echo json_encode(array('estado' => 'error', 'mensaje' => 'No se ha podido registrar el local'));
+                echo json_encode(array('estado' => 'error', 'mensaje' => 'No se ha podido registrar la valoracion'));
         }
         if($datos->opcion == 'modificar')
         {
-            $res = $dbh->query('SELECT * FROM local WHERE id = ' . $datos->id);
-            if($res->rowCount() > 0)
-            {
-                $sql = "UPDATE local SET nombre = '" . $datos->nombre . "', breve_descripcion = '" . $datos->breve_descripcion . "', descripcion = '" . $datos->descripcion . "', direccion = '" . $datos->direccion . "', lat = " . $datos->lat . ", lng = " . $datos->lng . ", categoria = " . $datos->categoria . " WHERE id = " . $datos->id;
-                if($dbh->query($sql))
-                    echo json_encode(array('estado' => 'ok', 'mensaje' => 'Local editado correctamente'));
-                else
-                    echo json_encode(array('estado' => 'error', 'mensaje' => 'No se ha podido editar el local'));
-            }
+            $sql = "UPDATE comentario SET texto = '" . $datos->texto . "', puntuacion = " . $datos->puntuacion .
+                " WHERE usuario = '" . $datos->usuarioID . "' AND local = '" . $datos->localID . "'";
+            if($dbh->query($sql))
+                echo json_encode(array('estado' => 'ok', 'mensaje' => 'Valoración editada correctamente'));
             else
-                echo json_encode(array('estado' => 'error', 'mensaje' => 'El local que intenta editar no se encuentra en la base de datos'));
+                echo json_encode(array('estado' => 'error', 'mensaje' => 'No se ha podido editar la valoración'));
         }
     }
     else

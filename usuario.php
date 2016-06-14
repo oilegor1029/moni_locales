@@ -1,6 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['usuario'])){
+require_once('util/DB.php');
+
+if( !isset($_SESSION['usuario']) && !isset($_GET['id']) ){
     header('Location: cuenta.php');
 }
 ?>
@@ -8,115 +10,132 @@ if(!isset($_SESSION['usuario'])){
 <html lang="es">
 <head>
     <?php
-    $name = "";
+    $name = "Usuario";
     include "plantillas/head.php";
     ?>
 </head>
 <body>
     <?php
-        $pagina = "";
         include "plantillas/header.php";
     ?>
     <section class="contact">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2" id="infoUsuario">
-                    <h2>Configurando tu perfil</h2>
-                    <span>Modifica los datos que desees</span>
-                    <form action="?" class="form-horizontal">
-                        <div class="form-group">
-                            <label for="email" class="control-label col-sm-2">Email</label>
-                            <div class="col-sm-10">
-                                <input name="email" id="email" type="email" class="form-control" placeholder="email" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="nombre" class="control-label col-sm-2">Nombre</label>
-                            <div class="col-sm-10">
-                                <input name="nombre" id="nombre" type="text" class="form-control" placeholder="Nombre" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="apellidos" class="control-label col-sm-2">Apellidos</label>
-                            <div class="col-sm-10">
-                                <input name="apellidos" id="apellidos" type="text" class="form-control" placeholder="Apellidoss" required>
-                            </div>
-                        </div>
-                        <input type="submit" id="btnModificar" name="btnModificar" value="Guardar cambios"/>
-                    </form>
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 onclick="$('#botones').toggle(150)" class="btn btn-default center-block">Mi cuenta</h2><br>
+                    <div id="botones">
+                        <?php if (isset($_SESSION['usuario'])){ ?>
+                        <a id="botonLogout" class="btn btn-default btn-md center-block" role="button">
+                            <i class="fa fa-sign-out fa-fw"></i> Cerrar sesión
+                        </a><br>
+                        <a id="botonVer" class="btn btn-default btn-md center-block" role="button" href="usuario.php?id=<?php echo $_SESSION['usuario']['id']; ?>">
+                        <i class="fa fa-eye fa-fw"></i> Ver mi perfil
+                        </a><br>
+                        <?php } ?>
+                        <a id="botonConfigurar" class="btn btn-default btn-md center-block" role="button" href="usuario.php">
+                            <i class="fa fa-cog fa-fw"></i> <?php echo (isset($_SESSION['usuario'])) ? "Configurar cuenta" : "Iniciar sesion"; ?>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 style="display: <?php echo $sesionIniciada ? 'none' : 'block' ?>;" class="modal-title">Regístrate ahora <span class="text-success">GRATIS</span></h4>
-            <h4 style="display: <?php echo $sesionIniciada ? 'block' : 'none' ?>;" class="modal-title"><span class="fa fa-edit"></span> Modificar datos</h4>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="form-group">
-                        <label for="nombre_usuario" class="control-label">Nombre de usuario</label>
-                        <div class="input-group">
-                            <div class="input-group-addon"><span class="fa fa-user fa-fw"></span></div>
-                            <input type="text" <?php echo $sesionIniciada ? 'disabled' : '' ?> class="form-control" id="txtNombreUsuario" value="<?php echo $sesionIniciada ? $_SESSION['usuario']->getUsuario() : ''?>">
-                        </div>
-                        <span class="help-block text-danger" id="help_nombreUsuario"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="email_usuario" class="control-label">Email</label>
-                        <div class="input-group">
-                            <div class="input-group-addon"><span class="fa fa-at fa-fw"></span>
-                            </div>
-                            <input type="email" class="form-control" id="txtEmail" placeholder="ejemplo@gmail.com" value="<?php echo $sesionIniciada ? $_SESSION['usuario']->getEmail() : ''?>">
-                        </div>
-                        <span class="help-block text-danger" id="help_email"></span>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-3"><label for="pass_usuario_reg" class="control-label">Contraseña</label>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div id="comentario_medidor_pass"></div>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-addon"><span class="fa fa-key fa-fw"></span>
-                            </div>
-                            <input type="password" class="form-control" id="txtPass" <?php if($sesionIniciada) echo 'placeholder="Déjela en blanco si no desea cambiarla."'; ?>>
-                            <div class="input-group-addon medidor_pass">
-                                <ul class="medidor_pass">
-                                    <li class="1"></li>
-                                    <li class="2"></li>
-                                    <li class="3"></li>
-                                    <li class="4"></li>
-                                    <li class="5"></li>
-                                </ul>
-                            </div>
-                        </div>
+    <hr>
 
-                        <span class="help-block text-danger" id="help_pass"></span>
-                        <small>
-                            <span class="help-block"><a style="cursor: pointer" onClick="$('#consejos_pass').toggle();">Consejos para elegir una buena contraseña</a><br/></span>
-                            <div class="well" id="consejos_pass" style="display:none;">
-                                <ul>
-                                    <li>Debería tener al menos 8 caracteres.</li>
-                                    <li>Combina mayúsculas y minúsculas.</li>
-                                    <li>Incluye símbolos (!,%, &, @, #, $, ^, *,?, _, ~) o números.</li>
-                                    <li>No incluyas datos personales como tu nombre o email.</li>
-                                    <li>¡Haz que sea imposible de adivinar!</li>
-                                </ul>
+    <section class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2" id="infoUsuario">
+                    <?php
+                    if( !isset($_GET['id']) ){
+                        $usuario = $_SESSION['usuario'];
+                    ?>
+                        <!-- INICIO MODIFICAR -->
+                        <h2>Configuración del perfil</h2>
+                        <form action="?" class="form-horizontal" id="formConfig">
+                            <div class="form-group">
+                                <label for="email" class="control-label col-sm-2">Email</label>
+                                <div class="col-sm-10">
+                                    <input name="email" id="email" type="email" class="form-control" placeholder="email" required value="<?php echo $usuario['email']?>">
+                                </div>
                             </div>
-                        </small>
-                    </div>
-                    <button style="display: <?php echo $sesionIniciada ? 'none' : 'block' ?>" class="btn btn-info btn-block" data-loading-text="Registrando..." id="btnRegUsuario">¡Registrarme ahora!</button>
-                    <button style="display: <?php echo $sesionIniciada ? 'block' : 'none' ?>" class="btn btn-success btn-block" data-loading-text="Guardando..." id="btnGuardarCambios">Guardar cambios</button>
+                            <div class="form-group">
+                                <label for="nombre" class="control-label col-sm-2">Nombre</label>
+                                <div class="col-sm-10">
+                                    <input name="nombre" id="nombre" type="text" class="form-control" placeholder="Nombre" required value="<?php echo $usuario['nombre']?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellidos" class="control-label col-sm-2">Apellidos</label>
+                                <div class="col-sm-10">
+                                    <input name="apellidos" id="apellidos" type="text" class="form-control" placeholder="Apellidos" required value="<?php echo $usuario['apellidos']?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion" class="control-label col-sm-2">Descripcion</label>
+                                <div class="col-sm-10">
+                                    <textarea name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion"><?php echo $usuario['descripcion']?></textarea>
+                                </div>
+                            </div>
+                            <button id="botonContraseña" class="btn btn-default btn-md center-block">
+                                <i class="fa fa-key fa-fw"></i> Cambiar contraseña
+                            </button>
+                            <div id="divContraseña">
+                                <small>
+                                    <p class="help-block text-danger" id="help_pass"></p>
+                                    <p class="help-block">Dejar en blanco o minimizar para no cambiar la contraseña.</p>
+                                    <p class="help-block"><a style="cursor: pointer" onClick="$('#consejos_pass').toggle();">Consejos para elegir una buena contraseña</a><br/></p>
+                                    <div class="well" id="consejos_pass" style="display:none;">
+                                        <ul>
+                                            <li>Debería tener al menos 8 caracteres.</li>
+                                            <li>Combina mayúsculas y minúsculas.</li>
+                                            <li>Incluye símbolos (!,%, &, @, #, $, ^, *,?, _, ~) o números.</li>
+                                            <li>No incluyas datos personales como tu nombre o email.</li>
+                                            <li>¡Haz que sea imposible de adivinar!</li>
+                                        </ul>
+                                    </div>
+                                </small>
+                                <div class="form-group">
+                                    <label for="contraseña" class="control-label col-sm-2">Contraseña</label>
+                                    <div class="col-sm-10">
+                                        <input name="contraseña" id="contraseña" type="password" class="form-control" placeholder="Contraseña" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="conf_contraseña" class="control-label col-sm-2">Confirmar contraseña</label>
+                                    <div class="col-sm-10">
+                                        <input name="conf_contraseña" id="conf_contraseña" type="password" class="form-control" placeholder="Repite la contraseña" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="submit" id="btnModificar" name="btnModificar" value="Guardar cambios"/>
+                        </form>
+                        <!-- FIN MODIFICAR -->
+                    <?php
+                    } else {
+                    ?>
+                        <!-- INICIO INFORMACION -->
+                        <h2>Perfil de <span  id="nombreUsuario"></span></h2>
+                        <div>
+                            <br><h4><i class="fa fa-envelope" aria-hidden="true"> Email</i>: <span id="emailUsuario">test@gmail.com</span></h4>
+                        </div>
+                        <div>
+                            <h4>Descripcion:</h4><p id="descripcionUsuario">The idea of creating something out of nothing has always generated a passion in my heart. This is what lead me to website development. I can literally create little worlds that hopefully thousands of people can see and even experience.</p>
+                        </div>
+                        <hr>
+                        <h2>Actividad</h2>
+                        <div id="divActividad"></div>
+                    <?php
+                    }
+                    ?>
+                    <!-- FIN INFORMACION -->
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
     <?php include "plantillas/footer.php"; ?>
+    <script src="js/usuario.js"></script>
 </body>
 </html>

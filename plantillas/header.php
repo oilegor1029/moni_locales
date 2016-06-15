@@ -11,7 +11,7 @@
             <div class="col-md-8 col-md-offset-2 no-padding">
                 <div class="col-md-12 text-center user">
                     <img src="img/escudo.png" alt="Me" class="img-circle">
-                    <h1>Moñi Locales</h1>
+                    <h1>Ocio Los Palacios</h1>
                     <h4>Encuentra que hacer en Los Palacios y Villafranca de forma sencilla.</h4>
                 </div>
                 <!-- nav starts here -->

@@ -15,7 +15,7 @@ if(isset($_REQUEST['datos']))
     $mensaje .= "<li>Nombre: ".$datos->nombre."</li>";
     $mensaje .= "<li>Motivo: ".$datos->motivo."</li>";
     $mensaje .= "<li>Metodos de contacto: <lu>";
-    foreach ($datos->metodo as $clave => $valor)
+    foreach ($datos->metodos as $clave => $valor)
         $mensaje .= "<li>".$valor."</li>";
     $mensaje .= "</ul><li>Mensaje: ".$datos->mensaje."</li>";
 

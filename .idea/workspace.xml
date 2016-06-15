@@ -5,46 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd9130d9-a33f-46c2-b5ff-d85397084837" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/contacto.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/util/sugerencia.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/37.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/8042873_2.bak.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/89d891f04df9073f966dd7b127f68c04.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/908863319.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/Captura.PNG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/Crouching-Tiger-Hidden-Dragon.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/Tiger And Dragon Tattoo Drawn In T.s.p. by tank402 on DeviantArt.url" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/Wholesale-waterproof-temporary-font-b-tattoo-b-font-big-size-male-font-b-tiger-b-font.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/Wild Animals by Lucky978 on DeviantArt.url" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/a1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/a2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/a3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/big-dragon-font-b-tiger-b-font-totem-designs-Temporary-tattoo-stickers-Waterproof-font-b-body.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/tiger-and-dragon-color-tattoo-design.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/tiger_and_dragon_tattoo_drawn_in_2006_on_frederick_by_tank402-d64qqr6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/local/tatto/tiger_and_dragon_tattoo_drawn_in_t_s_p__by_tank402-d64qqjw.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/works/1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/works/2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/works/3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/works/4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/works/5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/works/6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/works/7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/works/8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/works/9.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contacto.php" afterPath="$PROJECT_DIR$/contacto.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cuenta.php" afterPath="$PROJECT_DIR$/cuenta.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/cuenta.js" afterPath="$PROJECT_DIR$/js/cuenta.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/custom.js" afterPath="$PROJECT_DIR$/js/custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/local.js" afterPath="$PROJECT_DIR$/js/local.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/usuario.js" afterPath="$PROJECT_DIR$/js/usuario.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.php" afterPath="$PROJECT_DIR$/local.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plantillas/footer.php" afterPath="$PROJECT_DIR$/plantillas/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/usuario.php" afterPath="$PROJECT_DIR$/usuario.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/contacto.js" afterPath="$PROJECT_DIR$/js/contacto.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plantillas/head.php" afterPath="$PROJECT_DIR$/plantillas/head.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plantillas/header.php" afterPath="$PROJECT_DIR$/plantillas/header.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/DB.php" afterPath="$PROJECT_DIR$/util/DB.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/recover.php" afterPath="$PROJECT_DIR$/util/recover.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/reg_or_mod_client.php" afterPath="$PROJECT_DIR$/util/reg_or_mod_client.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/sugerencia.php" afterPath="$PROJECT_DIR$/util/sugerencia.php" />
     </list>
     <ignored path="moni_locales.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,65 +32,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="locales.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/locales.js">
+      <file leaf-file-name="DB.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/util/DB.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="99" column="39" selection-start-line="99" selection-start-column="39" selection-end-line="99" selection-end-column="39" />
+            <state relative-caret-position="102">
+              <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
               <folding>
-                <element signature="e#3079#8029#0" expanded="false" />
-                <element signature="e#8067#10506#0" expanded="false" />
-                <marker date="1465925625379" expanded="true" signature="5315:5346" ph="..." />
-                <marker date="1465925625379" expanded="true" signature="6390:6401" ph="..." />
-                <marker date="1465925625379" expanded="true" signature="6520:6551" ph="..." />
-                <marker date="1465925625379" expanded="true" signature="9158:9189" ph="..." />
-                <marker date="1465925625379" expanded="true" signature="9921:9932" ph="..." />
-                <marker date="1465925625379" expanded="true" signature="10011:10042" ph="..." />
+                <marker date="1465956181821" expanded="true" signature="1322:1772" ph="CREATE TABLE... IF" />
+                <marker date="1465956181821" expanded="true" signature="1878:1899" ph="SELECT * FRO... usuario" />
+                <marker date="1465956181821" expanded="true" signature="2005:2161" ph="INSERT INTO usuario... " />
+                <marker date="1465956181821" expanded="true" signature="2279:2443" ph="INSERT INTO usuario... " />
+                <marker date="1465956181821" expanded="true" signature="2601:2760" ph="CREATE TABLE... IF" />
+                <marker date="1465956181821" expanded="true" signature="2836:2859" ph="SELECT * FRO... categoria" />
+                <marker date="1465956181821" expanded="true" signature="2965:3268" ph="INSERT INTO categoria... " />
+                <marker date="1465956181821" expanded="true" signature="3426:3992" ph="CREATE TABLE... local" />
+                <marker date="1465956181821" expanded="true" signature="4155:4174" ph="SELECT * FRO... local" />
+                <marker date="1465956181821" expanded="true" signature="4280:10189" ph="INSERT INTO local... " />
+                <marker date="1465956181821" expanded="true" signature="10347:10899" ph="CREATE TABLE... comentario" />
+                <marker date="1465956181821" expanded="true" signature="10964:10974" ph="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plantillas/footer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="49" column="17" selection-start-line="49" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#iframe#0;n#div#1;n#div#0;n#div#0;n#div#0;n#footer#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="custom.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/custom.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
-              <folding>
-                <marker date="1465952313984" expanded="true" signature="34:2040" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contacto.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/contacto.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-224">
-              <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contacto.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/contacto.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="79" selection-start-line="28" selection-start-column="79" selection-end-line="28" selection-end-column="79" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -178,25 +104,25 @@
         <option value="$PROJECT_DIR$/util/get_comentarios.php" />
         <option value="$PROJECT_DIR$/util/get_user_info.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/plantillas/header.php" />
         <option value="$PROJECT_DIR$/js/custom_admin.js" />
         <option value="$PROJECT_DIR$/admin/panel.php" />
-        <option value="$PROJECT_DIR$/plantillas/head.php" />
         <option value="$PROJECT_DIR$/js/locales.js" />
-        <option value="$PROJECT_DIR$/util/DB.php" />
         <option value="$PROJECT_DIR$/local.php" />
         <option value="$PROJECT_DIR$/cuenta.php" />
         <option value="$PROJECT_DIR$/js/cuenta.js" />
         <option value="$PROJECT_DIR$/usuario.php" />
         <option value="$PROJECT_DIR$/util/reg_or_mod_client.php" />
         <option value="$PROJECT_DIR$/js/usuario.js" />
-        <option value="$PROJECT_DIR$/util/sugerencia.php" />
         <option value="$PROJECT_DIR$/util/recover.php" />
         <option value="$PROJECT_DIR$/js/local.js" />
         <option value="$PROJECT_DIR$/plantillas/footer.php" />
         <option value="$PROJECT_DIR$/js/custom.js" />
         <option value="$PROJECT_DIR$/contacto.php" />
+        <option value="$PROJECT_DIR$/plantillas/header.php" />
         <option value="$PROJECT_DIR$/js/contacto.js" />
+        <option value="$PROJECT_DIR$/util/sugerencia.php" />
+        <option value="$PROJECT_DIR$/plantillas/head.php" />
+        <option value="$PROJECT_DIR$/util/DB.php" />
       </list>
     </option>
   </component>
@@ -271,6 +197,20 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="moni_locales" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="moni_locales" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="plantillas" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -286,38 +226,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="moni_locales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="moni_locales" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="moni_locales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="moni_locales" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="local" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -422,7 +330,7 @@
       <workItem from="1465825245822" duration="8249000" />
       <workItem from="1465852759093" duration="14276000" />
       <workItem from="1465910448371" duration="13208000" />
-      <workItem from="1465940068121" duration="11031000" />
+      <workItem from="1465940068121" duration="13534000" />
     </task>
     <task id="LOCAL-00001" summary="26/05 Casa">
       <created>1464302042915</created>
@@ -435,7 +343,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149491000" />
+    <option name="totallyTimeSpent" value="151994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
@@ -597,13 +505,6 @@
     <entry file="file://$PROJECT_DIR$/geocoding.php" />
     <entry file="file://$PROJECT_DIR$/js/admin/jspdf/libs/base64.js" />
     <entry file="file://$PROJECT_DIR$/js/admin/tableExport.jquery.json" />
-    <entry file="file://$PROJECT_DIR$/plantillas/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/lib/jquery.dataTables.spanish.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -659,13 +560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-459">
           <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plantillas/head.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -725,48 +619,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/util/DB.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-442">
-          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-          <folding>
-            <marker date="1465944014475" expanded="true" signature="1322:1772" ph="CREATE TABLE... IF" />
-            <marker date="1465944014475" expanded="true" signature="1878:1899" ph="SELECT * FRO... usuario" />
-            <marker date="1465944014475" expanded="true" signature="2005:2161" ph="INSERT INTO usuario... " />
-            <marker date="1465944014475" expanded="true" signature="2279:2443" ph="INSERT INTO usuario... " />
-            <marker date="1465944014475" expanded="true" signature="2601:2760" ph="CREATE TABLE... IF" />
-            <marker date="1465944014475" expanded="true" signature="2836:2859" ph="SELECT * FRO... categoria" />
-            <marker date="1465944014475" expanded="true" signature="2965:3268" ph="INSERT INTO categoria... " />
-            <marker date="1465944014475" expanded="true" signature="3426:3992" ph="CREATE TABLE... local" />
-            <marker date="1465944014475" expanded="true" signature="4155:4174" ph="SELECT * FRO... local" />
-            <marker date="1465944014475" expanded="true" signature="4280:10189" ph="INSERT INTO local... " />
-            <marker date="1465944014475" expanded="true" signature="10347:10899" ph="CREATE TABLE... comentario" />
-            <marker date="1465944014475" expanded="true" signature="10964:10974" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/cuenta.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/reg_or_mod_client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
-          <folding>
-            <marker date="1465949768173" expanded="true" signature="843:900" ph="SELECT * FRO... usuario" />
-            <marker date="1465949768173" expanded="true" signature="1224:1401" ph="INSERT INTO usuario... " />
-            <marker date="1465949768173" expanded="true" signature="2220:2387" ph="UPDATE clien... " />
-            <marker date="1465949768173" expanded="true" signature="2657:2701" ph="SELECT * FRO... usuario" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/usuario.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -781,14 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
           <caret line="89" column="28" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/sugerencia.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="61" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -830,6 +674,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/img/works/1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plantillas/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/reg_or_mod_client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+          <folding>
+            <marker date="1465949768173" expanded="true" signature="843:900" ph="SELECT * FRO... usuario" />
+            <marker date="1465949768173" expanded="true" signature="1224:1401" ph="INSERT INTO usuario... " />
+            <marker date="1465949768173" expanded="true" signature="2220:2387" ph="UPDATE clien... " />
+            <marker date="1465949768173" expanded="true" signature="2657:2701" ph="SELECT * FRO... usuario" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/cuenta.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2108">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plantillas/head.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/sugerencia.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/contacto.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contacto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-224">
+          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+          <folding>
+            <marker date="1465952313984" expanded="true" signature="34:2040" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/plantillas/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
@@ -838,11 +758,6 @@
             <element signature="n#style#0;n#iframe#0;n#div#1;n#div#0;n#div#0;n#div#0;n#footer#0;n#!!top" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/works/1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/locales.js">
@@ -862,29 +777,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/custom.js">
+    <entry file="file://$PROJECT_DIR$/util/DB.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+        <state relative-caret-position="102">
+          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
           <folding>
-            <marker date="1465952313984" expanded="true" signature="34:2040" ph="{...}" />
+            <marker date="1465956181821" expanded="true" signature="1322:1772" ph="CREATE TABLE... IF" />
+            <marker date="1465956181821" expanded="true" signature="1878:1899" ph="SELECT * FRO... usuario" />
+            <marker date="1465956181821" expanded="true" signature="2005:2161" ph="INSERT INTO usuario... " />
+            <marker date="1465956181821" expanded="true" signature="2279:2443" ph="INSERT INTO usuario... " />
+            <marker date="1465956181821" expanded="true" signature="2601:2760" ph="CREATE TABLE... IF" />
+            <marker date="1465956181821" expanded="true" signature="2836:2859" ph="SELECT * FRO... categoria" />
+            <marker date="1465956181821" expanded="true" signature="2965:3268" ph="INSERT INTO categoria... " />
+            <marker date="1465956181821" expanded="true" signature="3426:3992" ph="CREATE TABLE... local" />
+            <marker date="1465956181821" expanded="true" signature="4155:4174" ph="SELECT * FRO... local" />
+            <marker date="1465956181821" expanded="true" signature="4280:10189" ph="INSERT INTO local... " />
+            <marker date="1465956181821" expanded="true" signature="10347:10899" ph="CREATE TABLE... comentario" />
+            <marker date="1465956181821" expanded="true" signature="10964:10974" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contacto.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-224">
-          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/contacto.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="79" selection-start-line="28" selection-start-column="79" selection-end-line="28" selection-end-column="79" />
-          <folding />
         </state>
       </provider>
     </entry>

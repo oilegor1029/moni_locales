@@ -17,7 +17,7 @@ $(function() {
             return false;
         }
         $.ajax({
-            url: 'util/login.php',
+            url: 'util/sugerencia.php',
             dataType: 'json',
             type: 'post',
             data:

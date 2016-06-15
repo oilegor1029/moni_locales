@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Moñi Locales | <?php echo $name; ?></title>
+<title>Ocio Los Palacios | <?php echo $name; ?></title>
+<link rel="icon" href="img/favicon.png">
 <!-- Stylesheets -->
 <link rel="stylesheet" href="css/lib/font-awesome.min.css">
 <link rel="stylesheet" href="css/lib/bootstrap.min.css">

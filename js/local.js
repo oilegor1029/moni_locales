@@ -32,12 +32,12 @@ $(document).ready(function() {
                                 $("#local_descripcion").html(respuesta.local.descripcion);
                             }
                             else {
-                                window.location.replace("404.php");
+                                window.location.assign ("404.php");
                             }
                         },
                         error: function (xhr)
                         {
-                            toastr.error('Ha habido problemas para obtener los locales :(');
+                            toastr.error('Ha habido problemas para obtener el local :(');
                             $('#contenido').html('');
                         }
                     });
@@ -63,10 +63,6 @@ $(document).ready(function() {
                         html +=
                             '<div id="comentario'+comentario.usuario+'" class="divComentario">'
                                 + '<div class="media">'
-                                    + '<a class="pull-left" href="#">'
-                                    //+ '<img class="media-object" src="img/local/'+comentario.img+'" alt="" width="64px" height="64px">'
-                                        + '<img class="media-object comentarioImagen" src="http://placehold.it/64x64" alt="" width="64px" height="64px">'
-                                    + '</a>'
                                     + '<div class="media-body">'
                                         + '<h4 class="media-heading comentarioAutor">' + comentario.usuarioNombre
                                             +'  <small class="comentarioFecha">'+comentario.fecha+'</small>'

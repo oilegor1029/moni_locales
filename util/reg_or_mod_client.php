@@ -2,11 +2,10 @@
 session_start();
 require_once('DB.php');
 $dbh = DB::getInstancia()->getDbh();
-if(isset($_POST['datos']))
+if(isset($_REQUEST['datos']))
 {
-    $datos = json_decode($_POST['datos']);
+    $datos = json_decode($_REQUEST['datos']);
     $todoCorrecto = true;
-
 
     if(!preg_match('/([A-Za-zñÑ\s]){3,}/', $datos->nombre))
         $todoCorrecto = false;
@@ -17,7 +16,10 @@ if(isset($_POST['datos']))
     if(!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $datos->email))
         $todoCorrecto = false;
 
-    if(!($datos->opcion == 'modificar' && $datos->pass == '') && !preg_match('/^.{8,}/', $datos->pass))
+    if(!($datos->opcion == 'modificar' && $datos->pass == '') && !preg_match('/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/', $datos->pass))
+        $todoCorrecto = false;
+    
+    if ($datos->pass != $datos->conf_pass)
         $todoCorrecto = false;
 
     if($todoCorrecto)
@@ -33,7 +35,7 @@ if(isset($_POST['datos']))
                 echo json_encode(array('estado' => 'error', 'mensaje' => 'Ya existe un usuario con ese mismo email'));
             else
             {
-                if($dbh->query('INSERT INTO usuario VALUES ("' . $datos->email . '", "' . sha1($datos->pass) . '", "' . $datos->nombre . '", "' . $datos->apellidos . '", "' . $datos->descripcion . '", 0)'))
+                if($dbh->query('INSERT INTO usuario VALUES (null, "' . $datos->email . '", "' . sha1($datos->pass) . '", "' . $datos->nombre . '", "' . $datos->apellidos . '", "' . $datos->descripcion . '", 0)'))
                 {
                     if(mail($datos->email, 'Registro en Ocio Palaciego', 'Enhorabuena '. $datos->nombre.', usted se ha registrado en Ocio Palaciego.'))
                         echo json_encode(array('estado' => 'ok', 'mensaje' => 'Se ha registrado correctamente'));
@@ -43,30 +45,27 @@ if(isset($_POST['datos']))
                 else
                     echo json_encode(array('estado' => 'error', 'mensaje' => 'No se ha podido registrar al cliente'));
             }
-        }
-        if($datos->opcion == 'modificar')
+        } else if($datos->opcion == 'modificar')
         {
             if($existe)
             {
                 $id = $res->fetchObject()->id;
-                $sql = "UPDATE cliente SET email = '" . $datos->email . "', nombre = '" . $datos->nombre . "', apellidos = '".$datos->apellidos."', descripcion = '" . $datos->descripcion . "'";
+                $sql = "UPDATE usuario SET email = '" . $datos->email . "', nombre = '" . $datos->nombre . "', apellidos = '".$datos->apellidos."', descripcion = '" . $datos->descripcion . "'";
                 if($datos->pass != '')
                     $sql .= ", pass = '".sha1($datos->pass)."'";
                 $sql .= " WHERE id = '" . $id . "'";
                 if($dbh->query($sql))
                 {
-                    /*
                     $clienteModificado = $dbh->query('SELECT * FROM usuario WHERE id="' . $id . '"');
                     $clienteModificado = $clienteModificado->fetchObject();
-                    $_SESSION['usuario'] = new Usuario(
-                        $clienteModificado->id ,
-                        $clienteModificado->email,
-                        $clienteModificado->nombre,
-                        $clienteModificado->apellidos,
-                        $clienteModificado->descripcion,
-                        $clienteModificado->admin
-                    );
-                    */
+                    $_SESSION['usuario'] = [
+                        'id' => $clienteModificado->id ,
+                        'email' => $clienteModificado->email,
+                        'nombre' => $clienteModificado->nombre,
+                        'apellidos' => $clienteModificado->apellidos,
+                        'descripcion' => $clienteModificado->descripcion,
+                        'admin' => $clienteModificado->admin
+                    ];
                     echo json_encode(array('estado' => 'ok', 'mensaje' => 'Datos editados correctamente'));
                 }
                 else
@@ -74,12 +73,11 @@ if(isset($_POST['datos']))
             }
             else
                 echo json_encode(array('estado' => 'error', 'mensaje' => 'No existe un usuario con ese email'));
-        }
-
+        } else
+            echo json_encode(array('estado' => 'error', 'mensaje' => 'No ha indicado el tipo'));
     }
     else
         echo json_encode(array('estado' => 'error', 'mensaje' => 'Datos incorrectos'));
-
 }
 else
     echo json_encode(array('estado' => 'error', 'mensaje' => 'El servidor no ha recibido los datos'));

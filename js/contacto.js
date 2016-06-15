@@ -1,48 +1,21 @@
-$('#panel2').hide();
-
-var pass = $("#register-form #password");
-var confirm_password = $("#register-form #confirm-password");
-
-function validatePassword(){
-    if(pass.val() != confirm_password.val()) {
-        confirm_password.get(0).setCustomValidity("Las contraseñas no coinciden.");
-    } else {
-        confirm_password.get(0).setCustomValidity('');
-    }
-}
-
-pass.change(validatePassword);
-confirm_password.keyup(validatePassword);
-
 $(function() {
-    $('#mensajeLogin').html('');
-    //VENTANAS
-    $('#login-form-link').click(function(e) {
-        $("#login-form").delay(100).fadeIn(100);
-        $("#register-form").fadeOut(100);
-        $('#register-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-    $('#register-form-link').click(function(e) {
-        $('#mensajeLogin').html('');
-        $("#register-form").delay(100).fadeIn(100);
-        $("#login-form").fadeOut(100);
-        $('#login-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-    $('#recover-form-link').click(function(e) {
-        $("#recover-form #email").val($("#login-form #email").val());
-        //document.getElementById('login-form').reset();
-        $('#mensajeLogin').html('');
-        $('#panel2').delay(100).show(100);
-        $('#panel1').hide(100);
-        e.preventDefault();
-    });
     
-    //LOGIN SUBMIT
-    $('#login-form').submit(function() {
+    //SUBMIT
+    $('#formContacto').submit(function() {
+        if ( $('#cbEmail').is(":checked")){
+            if ( $('#cbEmail').is(":checked")){
+                var metodos = [$('#email').val(), $('#telefono').val()];
+            }
+            else {
+                var metodos = [$('#email').val()];
+            }
+        } else if ( $('#cbEmail').is(":checked")){
+            var metodos = [$('#telefono').val()];
+
+        } else {
+            toastr.error("Selecciona al menos un metodo");
+            return false;
+        }
         $.ajax({
             url: 'util/login.php',
             dataType: 'json',
@@ -51,8 +24,10 @@ $(function() {
             {
                 datos: JSON.stringify
                 ({
-                    email: $('#login-form #email').val(),
-                    pass: $('#login-form #password').val()
+                    nombre: $('#formContacto #nombre').val(),
+                    mensaje: $('#formContacto #mensaje').val(),
+                    motivo: $('#formContacto #motivo').find(":selected").text(),
+                    metodos: metodos
                 })
             },
             beforeSend: function ()

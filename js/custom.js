@@ -52,7 +52,8 @@ jQuery(document).ready(function() {
         var idInput = $(this).attr("value");
         var input = $('input[name="' + idInput + '"]');
         var estado = input.prop("readonly");
-        input.val("");
+        if (!estado)
+            input.val("");
         input.prop("readonly", !estado);
         if (estado) input.focus();
     });

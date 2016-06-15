@@ -9,21 +9,14 @@
                     <h3>Nuestro objetivo</h3>
                     <p>Esta web esta dedicada a encontrar lugares en el pueblo en los que poder salir a entretenernos.</p>
                     <p>Si conoces algun lugar que creas que deba estar en la web no dudes en comentarnoslo y lo añadiremos lo antes posible.</p>
-                    <a href="../html/contacto.html">Contacta con nosotros</a>
-                    <address>
-                        <a id="crear_estructura" class="btn btn-link" data-loading-text="Creando estructura...">Crear estructura de datos</a>
-                    </address>
+                    <a href="contacto.php">Contacta con nosotros</a>
                 </div>
 
                 <div class="col-md-6 instagram-photos">
                     <h3>Siguenos en Instagram</h3>
                     <p>Allí avisamos cada vez que agregamos un nuevo lugar</P>
                     <!-- place your instagram widget below -->
-                    <a href="#"><img src="http://placehold.it/100x100" alt=""></a>
-                    <a href="#"><img src="http://placehold.it/100x100" alt=""></a>
-                    <a href="#"><img src="http://placehold.it/100x100" alt=""></a>
-                    <a href="#"><img src="http://placehold.it/100x100" alt=""></a>
-                    <a href="#"><img src="http://placehold.it/100x100" alt=""></a>
+                    <!-- LightWidget WIDGET --><script src="//lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/f45a7d2d377152a0b8c21d451e871eb8.html" id="lightwidget_f45a7d2d37" name="lightwidget_f45a7d2d37"  scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
                 </div>
             </div>
         </div>

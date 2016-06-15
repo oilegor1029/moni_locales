@@ -26,7 +26,7 @@ if(isset($_SESSION['usuario'])){
                 <div class="col-md-8 col-md-offset-2">
                     <h2>Ponte en contacto</h2>
                     <span>Rellena los datos y cuéntanos que necesitas</span>
-                    <form action="?" class="form-horizontal">
+                    <form id="formContacto" method="post" class="form-horizontal">
                         <div class="form-group">
                             <label for="nombre" class="control-label col-sm-2">Nombre</label>
                             <div class="col-sm-10">
@@ -58,7 +58,7 @@ if(isset($_SESSION['usuario'])){
                         <p>Elige al menos un método de contacto para responderte:</p>
                         <div id="metodoContacto" class="panel panel-default">
                             <div class="form-group">
-                                <label for="email" id="email" class="control-label col-sm-2"><input type="checkbox" value="email"> Email</label>
+                                <label for="cbEmail" id="email" class="control-label col-sm-2"><input type="checkbox" value="email" id="cbEmail"> Email</label>
                                 <div class="col-sm-10">
                                     <input name="email" type="email" class="form-control" placeholder="Correo electrónico"
                                            readonly value="<?php echo $sesionIniciada ? $email : ''?>">
@@ -66,7 +66,7 @@ if(isset($_SESSION['usuario'])){
                             </div>
 
                             <div class="form-group">
-                                <label for="telefono" id="telefono" class="control-label col-sm-2"><input type="checkbox" value="telefono"> Teléfono</label>
+                                <label for="cbTlf" id="telefono" class="control-label col-sm-2"><input type="checkbox" value="telefono" id="cbTlf"> Teléfono</label>
                                 <div class="col-sm-10">
                                     <input name="telefono" type="text" class="form-control" Placeholder="Número de teléfono" readonly>
                                 </div>
@@ -75,7 +75,7 @@ if(isset($_SESSION['usuario'])){
 
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <input type="submit" class="form-control" value="Submit Your Message">
+                                <input type="submit" class="form-control" value="Enviar tu mensaje">
                             </div>
                         </div>
                     </form>
@@ -85,5 +85,6 @@ if(isset($_SESSION['usuario'])){
     </section>
 
     <?php include "plantillas/footer.php"; ?>
+    <script src="js/contacto.js"></script>
 </body>
 </html>

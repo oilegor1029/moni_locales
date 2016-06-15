@@ -63,19 +63,23 @@ if( !isset($_SESSION['usuario']) && !isset($_GET['id']) ){
                             <div class="form-group">
                                 <label for="nombre" class="control-label col-sm-2">Nombre</label>
                                 <div class="col-sm-10">
-                                    <input name="nombre" id="nombre" type="text" class="form-control" placeholder="Nombre" required value="<?php echo $usuario['nombre']?>">
+                                    <input name="nombre" id="nombre" type="text" class="form-control" placeholder="Nombre" required value="<?php echo $usuario['nombre']?>"
+                                           pattern="([A-Za-zñÑ\s]){3,}"
+                                           title="El nombre debe tener al menos 3 carácteres y solo letras">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="apellidos" class="control-label col-sm-2">Apellidos</label>
                                 <div class="col-sm-10">
-                                    <input name="apellidos" id="apellidos" type="text" class="form-control" placeholder="Apellidos" required value="<?php echo $usuario['apellidos']?>">
+                                    <input name="apellidos" id="apellidos" type="text" class="form-control" placeholder="Apellidos" required value="<?php echo $usuario['apellidos']?>"
+                                           pattern="([A-Za-zñÑ\s]){3,}"
+                                           title="Los apellidos deben tener al menos 3 carácteres y solo letras">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="descripcion" class="control-label col-sm-2">Descripcion</label>
                                 <div class="col-sm-10">
-                                    <textarea name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion"><?php echo $usuario['descripcion']?></textarea>
+                                    <textarea name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion opcional"><?php echo $usuario['descripcion']?></textarea>
                                 </div>
                             </div>
                             <button id="botonContraseña" class="btn btn-default btn-md center-block">
@@ -99,13 +103,16 @@ if( !isset($_SESSION['usuario']) && !isset($_GET['id']) ){
                                 <div class="form-group">
                                     <label for="contraseña" class="control-label col-sm-2">Contraseña</label>
                                     <div class="col-sm-10">
-                                        <input name="contraseña" id="contraseña" type="password" class="form-control" placeholder="Contraseña" required>
+                                        <input name="contraseña" id="contraseña" type="password" class="form-control" placeholder="Contraseña"
+                                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                                               title="La contraseña debe tener al menos 6 caracteres, incluyendo mayusculas, minusculas y numeros"
+                                        >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="conf_contraseña" class="control-label col-sm-2">Confirmar contraseña</label>
                                     <div class="col-sm-10">
-                                        <input name="conf_contraseña" id="conf_contraseña" type="password" class="form-control" placeholder="Repite la contraseña" required>
+                                        <input name="conf_contraseña" id="conf_contraseña" type="password" class="form-control" placeholder="Repite la contraseña">
                                     </div>
                                 </div>
                             </div>

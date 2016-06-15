@@ -26,10 +26,14 @@ if(isset($_POST['datos']))
             $sql = "UPDATE usuario SET pass = '" . sha1($nuevaPass) . "'";
             $sql .= " WHERE id = '" . $id . "'";
             if ($dbh->query($sql)) {
+                $headers .= "MIME-Version: 1.0\r\n";
+                $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
                 if (mail(
                     $datos->email,
                     'Nueva contraseña en Ocio Palaciego',
-                    '<p>Tu nueva contraseña es: ' . $nuevaPass . '</p><p>Inicie sesión con esta y visite su perfil de usuario si desea cambiarla.</p>'))
+                    '<p>Tu nueva contraseña es: "<b>' . $nuevaPass . '</b>"</p><p>Inicie sesión con esta y visite su perfil de usuario si desea cambiarla.</p>',
+                    $headers)
+                )
                     echo json_encode(array('estado' => 'ok', 'mensaje' => 'Hemos enviado a tu email tu nueva contraseña. Mirelo e introduzcala. Luego puedes modificarla desde la configuración de su usuario'));
                 else
                     echo json_encode(array('estado' => 'ok', 'mensaje' => 'Su nueva contraseña es ' . $nuevaPass . '. Cambiela en la configuración de su usuario si lo desea.'));

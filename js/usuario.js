@@ -1,3 +1,17 @@
+var pass = $("#formConfig #contraseña");
+var confirm_password = $("#formConfig #conf_contraseña");
+
+function validatePassword(){
+    if(pass.val() != confirm_password.val()) {
+        confirm_password.get(0).setCustomValidity("Las contraseñas no coinciden.");
+    } else {
+        confirm_password.get(0).setCustomValidity('');
+    }
+}
+
+pass.change(validatePassword);
+confirm_password.keyup(validatePassword);
+
 $(document).ready(function() {
 
     if (getUrlParameter("id")){
@@ -18,7 +32,6 @@ $(document).ready(function() {
                     $('#conf_contraseña').val('').prop('required',true);
                     $('#divContraseña').show(200);
                 }
-
                 //window.location.replace("404.php");
             }
         );
@@ -42,10 +55,49 @@ $(document).ready(function() {
         });
     });
 
-    $('#formConfig').submit(function (){
-
+    $('#formConfig').submit(function() {
+        $.ajax({
+            url: 'util/reg_or_mod_client.php',
+            dataType: 'json',
+            type: 'post',
+            data:
+            {
+                datos: JSON.stringify
+                ({
+                    opcion: 'modificar',
+                    email: $('#formConfig #email').val(),
+                    pass: $('#formConfig #contraseña').val(),
+                    conf_pass: $('#formConfig #conf_contraseña').val(),
+                    nombre: $('#formConfig #nombre').val(),
+                    apellidos: $('#formConfig #apellidos').val(),
+                    descripcion: $('#formConfig #descripcion').val()
+                })
+            },
+            beforeSend: function ()
+            {
+                $('#mensajeLogin').html('Cargando');
+            },
+            success: function (respuesta)
+            {
+                if (respuesta.estado == 'ok')
+                {
+                    $('#mensajeLogin').html('Datos modificados correctamente.');
+                    toastr.success(respuesta.mensaje);
+                }
+                else{
+                    toastr.error(respuesta.mensaje);
+                }
+            },
+            error: function (xhr, status, error)
+            {
+                $('#mensajeLogin').html('Ha habido problemas para hacer modificar los datos');
+                console.log(xhr);
+                console.log(status);
+                console.log(error);
+            }
+        });
+        return false;
     });
-
     function cargarPaginaUsuario(){
         $.ajax({
             url: 'util/get_user_info.php',
@@ -103,7 +155,11 @@ $(document).ready(function() {
                             }
                             else {
                                 //window.location.replace("404.php");
-                                toastr.error(respuesta.mensaje); //NO TIENE VALORACIONES
+                                if (respuesta.mensaje == "No tiene valoraciones"){
+                                    $('#divActividad').html(respuesta.mensaje);
+                                } else {
+                                    toastr.error(respuesta.mensaje);
+                                }
                             }
                         },
                         error: function (xhr)

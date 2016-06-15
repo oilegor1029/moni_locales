@@ -76,12 +76,12 @@ if(isset($_SESSION['usuario'])){
                                     </div>
                                     <div class="form-group">
                                         <input type="text" required pattern="([A-Za-zñÑ\s]){3,}"
-                                               title="El nombre debe tener al menos 3 carácteres"
+                                               title="El nombre debe tener al menos 3 carácteres y solo letras"
                                                name="nombre" id="nombre" tabindex="4" class="form-control" placeholder="Nombre">
                                     </div>
                                     <div class="form-group">
                                         <input type="text" required pattern="([A-Za-zñÑ\s]){3,}"
-                                               title="Los apellidos deben tener al menos 3 carácteres"
+                                               title="Los apellidos deben tener al menos 3 carácteres y solo letras"
                                                name="apellidos" id="apellidos" tabindex="5" class="form-control" placeholder="Apellidos" value="">
                                     </div>
                                     <div class="form-group">
